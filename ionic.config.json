@@ -1,0 +1,7 @@
+{
+  "name": "schoolpro",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
