@@ -1,17 +1,26 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-  <ion-title>
-  Tab 1
-</ion-title>
-</ion-toolbar>
-</ion-header>
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { IonicModule } from '@ionic/angular';
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-  <ion-toolbar>
-  <ion-title size="large">Tab 1</ion-title>
-</ion-toolbar>
-</ion-header>
+import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
-<app-explore-container name="Tab 1 page"></app-explore-container>
-  </ion-content>
+import { RegisterPage } from './register.page';
+
+describe('Tab1Page', () => {
+  let component: RegisterPage;
+  let fixture: ComponentFixture<RegisterPage>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [RegisterPage],
+      imports: [IonicModule.forRoot(), ExploreContainerComponentModule]
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(RegisterPage);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
