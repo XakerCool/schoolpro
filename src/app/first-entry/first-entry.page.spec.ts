@@ -1,21 +1,21 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TabsPage } from './tabs.page';
+import { FirstEntryPage } from "./first-entry.page";
 
-describe('TabsPage', () => {
-  let component: TabsPage;
-  let fixture: ComponentFixture<TabsPage>;
+describe('FirstEntryPage', () => {
+  let component: FirstEntryPage;
+  let fixture: ComponentFixture<FirstEntryPage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TabsPage],
+      declarations: [FirstEntryPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TabsPage);
+    fixture = TestBed.createComponent(FirstEntryPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

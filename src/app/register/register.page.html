@@ -1,17 +1,31 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Register
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="register_page">
+  <div class="register_page__img_block">
+    <img src="./assets/logo-1.png" alt=>
+  </div>
+  <div class="register_page__reg_or_login">
+    <button class="register_page__reg_or_login__reg_option register_page__reg_or_login__option selected" id="register">Регистрация</button>
+    <button class="register_page__reg_or_login__log_option register_page__reg_or_login__option" id="login">Войти</button>
+  </div>
+  <form action="" class="register_page__registration_form">
+    <input type="text" placeholder="Email/Номер телефона" name="email_phone_num" class="register_page__registration_form__input">
+    <div class="register_page__registration_form__password_block">
+      <input type="password" placeholder="Пароль " name="password" id="password" class="register_page__registration_form__input">
+      <img src="./assets/show_password.png" alt="" class="show_password">
+    </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Register</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Register page"></app-explore-container>
-</ion-content>
+  </form>
+  <div class="reg" id="reg_input">
+    <button class="reg__button" id="register_btn">Зарегистрироваться</button>
+    <div class="reg__add_text">
+      <p>С регистрацией, вы согласны с <a href="/policy" class="policy">условиями</a></p>
+      <p>Есть аккаунт? <button class="switch_to_reg_or_login_btn">Войти</button></p>
+    </div>
+  </div>
+  <div class="login hidden" id="log_input">
+    <button class="login__button" id="login_btn">Войти</button>
+    <div class="login__add_text">
+      <p>Забыли пароль? <a href="/forgot-password" class="forgot_password">Тык</a></p>
+      <p>Нет аккаунта? <button class="switch_to_reg_or_login_btn">Регистрация</button></p>
+    </div>
+  </div>
+</div>

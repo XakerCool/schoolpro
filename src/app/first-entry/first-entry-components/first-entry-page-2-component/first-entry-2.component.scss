@@ -1,0 +1,33 @@
+.first_entry__img {
+  width: 80%;
+}
+.first_entry__2__text {
+  font-size: 25px;
+  text-align: center;
+  padding: 0 10px;
+}
+.first_entry__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+.first_entry__prev_button, .first_entry__next_button {
+  height: 50px;
+  width: 30%;
+  padding: 0 20%;
+  font-size: 25px;
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FE082D;
+  box-shadow: inset 5px 5px 15px 1px rgba(4,4,4,0.3);
+}
+.first_entry__prev_button {
+  background-color: #F2F2F7;
+  color: #000;
+  box-shadow: none;
+}
