@@ -1,12 +1,28 @@
 .header {
   width: 100%;
   padding: 20px;
+  background: #fff;
   &__content {
+    color: #000;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    &__switch_theme_btn {
+      font-size: 25px;
+      --ionicon-stroke-width: 40px;
+      transform: rotate(44deg);
+    }
+
+    &__logo {
+      height: 100%;
+      img {
+        width: 50%;
+      }
+    }
   }
+
 }

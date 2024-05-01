@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
 
 @Component({
   selector: 'app-universities-component',
-  templateUrl: './unicomp-page.component.html',
-  styleUrls: ['./unicomp-page.component.scss']
+  templateUrl: './universities-page.component.html',
+  styleUrls: ['./universities-page.component.scss']
 })
-export class UnicompPageComponent{}
+export class UniversitiesPageComponent {}

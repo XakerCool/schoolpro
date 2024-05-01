@@ -90,8 +90,6 @@ export class VerificationPage implements OnInit {
           text.style.color = "black"
         }
       }
-      // alert("login")
-      console.log("login")
     })
   }
 }

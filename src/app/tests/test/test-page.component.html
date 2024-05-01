@@ -1,0 +1,44 @@
+<header-component></header-component>
+<ion-content class="test_page">
+  <div class="test_page__content">
+    <div class="test_page__content__up">
+      <a href="tests" class="go_back_arrow"></a>
+      <div class="like_button">
+        <ion-icon name="heart-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="test_page__content__outline">
+      <div class="test_page__content__outline__heading">
+        <div class="test_page__content__outline__heading__icon" [style.background-color]="quiz.backgroundColor">
+          <img src="{{quiz.iconPath}}" alt="">
+        </div>
+        <div class="test_page__content__outline__heading__test_name">
+          {{quiz.name}}
+        </div>
+      </div>
+      <div class="test_page__content__outline__questions">
+        <div class="test_page__content__outline__questions__question" data-id="{{i}}" *ngFor="let questions of quiz.questions; let i = index" style="color: #0d0d0d">
+          <span>{{i+1}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="test_page__content__current_question">
+      <div class="test_page__content__current_question__question">
+        <span class="test_page__content__current_question__question__text" id="current_question"></span>
+      </div>
+      <div class="test_page__content__current_question__answers">
+        <ul class="test_page__content__current_question__answers__list">
+          <li class="test_page__content__current_question__answers__list__answer" (click)="selectAnswer(i)" *ngFor="let answer of this.selectedQuestion.answers; let i = index;" data-id="{{i}}">
+            <span class="test_page__content__current_question__answers__list__answer__letter">{{ alphabet[i]}}.</span>
+            <span class="test_page__content__current_question__answers__list__answer__text">{{ answer.answer }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="test_page__content__answer_btn">
+      <span>Ответить</span>
+    </div>
+  </div>
+</ion-content>
