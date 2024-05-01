@@ -1,0 +1,138 @@
+ion-content {
+  --ion-background-color: #ffffff;
+}
+.edit_profile__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    img {
+      position: absolute;
+      width: 100%;
+    }
+    :nth-child(1) {
+      top: -20%;
+    }
+    :nth-child(2) {
+      top: 25%;
+    }
+    :nth-child(3) {
+      bottom: 0;
+    }
+  }
+
+  &__heading {
+    background-color: #ffffff;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: inset -5px -5px 10px 0 rgba(158, 189, 191, 0.25),
+    inset 5px 5px 10px 0 rgba(255,255,255, 0.25),
+    0 2px 8px 0 rgba(40, 41, 61, 0.08),
+    0 20px 32px 0 rgba(96, 97, 112, 0.24);
+
+    padding: 20px 0;
+    border-radius: 15px;
+    width: 80%;
+
+    span {
+      font-size: 20px;
+      color: #D31027;
+    }
+  }
+
+  &__profile_info {
+    z-index: 2;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__avatar {
+      margin: 30px 0;
+      width: 80px;
+      height: 80px;
+
+      border-radius: 50%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+      }
+    }
+
+    &__user_data {
+      width: 100%;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+
+        label {
+          margin: 5px 0;
+          color: #000000;
+          display: flex;
+          flex-direction: column;
+
+          border-bottom: 1px solid #DDE5EE;
+
+          span {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #A1B2CF;
+          }
+
+          input {
+            background: none;
+            border: none;
+            margin: 5px 0;
+            font-size: 18px;
+            padding: 10px;
+
+            :focus {
+              border: none;
+            }
+
+          }
+        }
+      }
+    }
+
+    &__save_btn {
+      margin-top: 50px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      padding: 15px 0;
+      font-size: 20px;
+      background-color: #FE082D;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px 0 rgba(254, 8, 45, 0.08),
+      0 20px 32px 0 rgba(254, 8, 45, 0.15),
+      inset 5px 5px 10px 0 rgba(0, 0, 0, 0.25),
+      inset -5px -5px 10px 0 rgba(254, 8, 45, 0.25),
+      0 4px 8px 0 rgba(0, 0, 0, 0.06);
+    }
+  }
+}

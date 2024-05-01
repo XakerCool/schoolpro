@@ -1,0 +1,138 @@
+.home_page {
+  --ion-background-color: #ffffff;
+  color: #000000;
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    &__greetings {
+      padding: 20px;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+
+      &__text {
+        font-size: 40px;
+        font-weight: bold;
+      }
+
+      &__img {
+        img {
+        }
+      }
+    }
+
+    &__categories {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: start;
+      padding: 0 30px;
+
+      &__category {
+        color: #8C8C8C;
+        padding: 10px 20px;
+        font-size: 17px;
+        background-color: rgba(120, 120, 128, 0.4);
+        border-radius: 20px;
+        margin-right: 10px;
+      }
+    }
+
+    &__cards {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+
+      &__card {
+        padding: 0 20px 20px 20px;
+
+        margin: 15px 0;
+
+        border-top-right-radius: 25px;
+        border-top-left-radius: 25px;
+        width: 100%;
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        background-color: rgba(254, 8, 45, 0.8);
+
+        &__text {
+          font-size: 30px;
+        }
+        &__more_btn {
+          text-decoration: none;
+          z-index: 2;
+          background-color: #ffffff;
+          color: #FE082D;
+          padding: 10px 15px;
+          font-size: 20px;
+          border-radius: 20px;
+        }
+
+        &__background {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+
+          z-index: 0;
+
+          img {
+            height: 100%;
+            width: 100%;
+          }
+        }
+
+        &__img {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          height: 100%;
+
+          img {
+            height: 100%;
+          }
+        }
+
+        &__save_btn {
+          z-index: 2;
+          position: absolute;
+          right: 10px;
+          bottom: 10px;
+
+          &__icon {
+            font-size: 35px;
+            --ionicon-stroke-width: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+.home_page__content__greetings__text {
+  color: #000;
+}
+.selected {
+  background-color: #FE082D;
+  color: #fff;
+  box-shadow: 2px 0px 7px 0px rgba(0,0,0,0.3);
+}

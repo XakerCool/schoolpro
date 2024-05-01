@@ -1,0 +1,54 @@
+<header-component></header-component>
+<ion-content class="tests_page">
+  <div class="tests_page__content">
+    <div class="tests_page__content__heading">
+      <div class="tests_page__content__heading__text">
+        Тесты Pro
+      </div>
+      <div class="tests_page__content__heading__img">
+        <img src="./assets/Memo.png" alt="">
+      </div>
+    </div>
+    <div class="tests_page__content__tests_list">
+      <a href="" class="tests_page__content__tests_list__test" *ngFor="let test of tests" [style.background-color]="test.backgroundColor">
+        <img src="{{test.iconPath}}" alt="" class="tests_page__content__tests_list__test__icon">
+        <span class="tests_page__content__tests_list__test__name">{{test.name}}</span>
+      </a>
+    </div>
+    <div class="tests_page__content__quiz">
+      <div class="tests_page__content__quiz__heading">
+        Викторина
+      </div>
+      <div class="tests_page__content__quiz__quiz">
+        <div class="tests_page__content__quiz__quiz__background">
+          <img src="./assets/card-background.png" alt="">
+        </div>
+        <div class="tests_page__content__quiz__quiz__title">
+          <div class="tests_page__content__quiz__quiz__title__icon">
+            <img src="{{quiz.iconPath}}" alt="">
+          </div>
+          <div class="tests_page__content__quiz__quiz__title__name">
+            <span>{{quiz.name}}</span>
+          </div>
+        </div>
+        <a href="/tests/test" class="tests_page__content__quiz__quiz__attempt_btn">
+          <span>{{quiz.questionsCount}} вопросов</span>
+          <span>-</span>
+          <span>{{quiz.time.hours}}:{{quiz.time.minutes}}:{{quiz.time.seconds}}</span>
+        </a>
+      </div>
+    </div>
+    <div class="tests_page__content__get_full_access">
+      <div class="tests_page__content__get_full_access__background">
+        <img src="./assets/card-background.png" alt="">
+      </div>
+      <div class="tests_page__content__get_full_access__text">
+        <div class="tests_page__content__get_full_access__text__text">Купить ВСЕ <br>Тесты PRO</div>
+        <a class="tests_page__content__get_full_access__text__more_btn" href="">Подробнее</a>
+      </div>
+      <div class="tests_page__content__get_full_access__image">
+        <img src="./assets/learn_more.png" alt="">
+      </div>
+    </div>
+  </div>
+</ion-content>
