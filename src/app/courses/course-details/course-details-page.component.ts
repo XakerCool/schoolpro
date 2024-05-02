@@ -4,7 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 @Component({
   selector: 'app-course-details-component',
   templateUrl: './course-details-page.component.html',
-  styleUrls: ['./course-details-page.component.scss']
+  styleUrls: ['./course-details-page.component.scss', './course-details-page-adaptive.component.scss']
 })
 export class CourseDetailsPageComponent implements OnInit{
   courses = [

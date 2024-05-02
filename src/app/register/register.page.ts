@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 @Component({
   selector: 'app-register',
   templateUrl: 'register.page.html',
-  styleUrls: ['register.page.scss']
+  styleUrls: ['register.page.scss', './register-page-adaptive.component.scss']
 })
 export class RegisterPage implements OnInit{
 

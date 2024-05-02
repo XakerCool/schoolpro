@@ -2,6 +2,7 @@
   color: #000000;
 }
 .verification_page {
+  background-color: #ffffff;
   width: 100%;
   height: 100%;
 
@@ -70,4 +71,54 @@
 .disabled {
   background-color: #F2F2F7;
   box-shadow: none;
+}
+
+@media (min-width: 768px), (min-width: 820px) {
+  .verification_page {
+    &__text {
+      font-size: 25px;
+    }
+
+    &__code_block {
+      &__item {
+        width: 52px;
+        height: 52px;
+        input {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .verification_page {
+    &__text {
+      font-size: 30px;
+    }
+
+    &__code_block {
+      &__item {
+        width: 60px;
+        height: 60px;
+        input {
+          font-size: 25px;
+        }
+      }
+    }
+
+    &__login_btn_block {
+      &__btn {
+        font-size: 30px;
+      }
+    }
+
+    &__send_code_again {
+      font-size: 25px;
+    }
+
+    &__timer {
+      font-size: 25px;
+    }
+  }
 }

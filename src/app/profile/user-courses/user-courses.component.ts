@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
  @Component({
    selector: 'app-user-courses-page',
    templateUrl: './user-courses.component.html',
-   styleUrls: ["./user-courses.component.scss"]
+   styleUrls: ["./user-courses.component.scss", "./user-courses-adaptive.component.scss"]
  })
 export class UserCoursesPageComponent {
    userCourses = [

@@ -1,0 +1,22 @@
+@media (min-width: 768px), (min-width: 820px) {
+  ion-icon {
+    font-size: 50px;
+    --ionicon-stroke-width: 40px;
+  }
+  .home_icon {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1024px) {
+  ion-tab-bar {
+    height: 80px;
+  }
+  ion-icon {
+    font-size: 60px;
+    --ionicon-stroke-width: 40px;
+  }
+  .home_icon {
+    width: 70%;
+  }
+}

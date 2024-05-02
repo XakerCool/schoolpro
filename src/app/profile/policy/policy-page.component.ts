@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 @Component({
   selector: 'app-policy-page',
   templateUrl: './policy-page.component.html',
-  styleUrls: ['./policy-page.component.scss']
+  styleUrls: ['./policy-page.component.scss', './policy-page-adaptive.component.scss']
 })
 export class PolicyPageComponent {
   constructor() {

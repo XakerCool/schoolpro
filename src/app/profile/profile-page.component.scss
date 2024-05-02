@@ -35,6 +35,7 @@ ion-content {
   }
 
   &__profile_photo {
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
