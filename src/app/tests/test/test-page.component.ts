@@ -3,7 +3,7 @@ import {Component, OnInit} from "@angular/core";
 @Component({
   selector: 'app-test-page',
   templateUrl: './test-page.component.html',
-  styleUrls: ['./test-tage.component.scss']
+  styleUrls: ['./test-tage.component.scss', './test-page-adaptive.component.scss']
 })
 export class TestPageComponent implements OnInit{
   alphabet = "abcdefghijklmnopqrstuvwxyz"

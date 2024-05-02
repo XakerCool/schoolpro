@@ -1,0 +1,77 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .buy_courses__content {
+    &__heading {
+      span {
+        font-size: 25px;
+      }
+    }
+
+    &__opportunities {
+      &__heading {
+        font-size: 35px;
+      }
+
+      &__list {
+        &__item {
+          .checkmark {
+            border-radius: 50%;
+            margin-right: 10px;
+            padding: 10px;
+
+            ion-icon {
+              font-size: 25px;
+              --ionicon-stroke-width: 50px;
+            }
+          }
+          &__text {
+            font-size: 20px;
+          }
+        }
+      }
+
+      &__see_tariffs {
+        width: 80%;
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .buy_courses__content {
+    &__heading {
+      span {
+        font-size: 30px;
+      }
+    }
+
+    &__opportunities {
+      &__heading {
+        font-size: 40px;
+      }
+
+      &__list {
+        &__item {
+          .checkmark {
+            border-radius: 50%;
+            margin-right: 10px;
+            padding: 10px;
+
+            ion-icon {
+              font-size: 30px;
+              --ionicon-stroke-width: 50px;
+            }
+          }
+          &__text {
+            font-size: 25px;
+          }
+        }
+      }
+
+      &__see_tariffs {
+        width: 80%;
+        font-size: 30px;
+      }
+    }
+  }
+}

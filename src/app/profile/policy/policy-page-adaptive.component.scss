@@ -1,0 +1,26 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .policy__content {
+    &__heading {
+      span {
+        font-size: 25px;
+      }
+    }
+    &__text {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .policy__content {
+    &__heading {
+      span {
+        font-size: 30px;
+      }
+    }
+    &__text {
+      font-size: 25px;
+      line-height: 50px;
+    }
+  }
+}

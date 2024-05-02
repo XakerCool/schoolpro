@@ -1,0 +1,73 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .home_page {
+    &__content {
+      &__greetings {
+        justify-content: start;
+        padding-left: 35px;
+      }
+
+      &__categories {
+        &__category {
+          font-size: 25px;
+        }
+      }
+
+      &__cards {
+        &__card {
+          &__more_btn {
+            font-size: 25px;
+          }
+          &__save_btn {
+            &__icon {
+              font-size: 45px;
+              --ionicon-stroke-width: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .home_page {
+    &__content {
+      &__greetings {
+        justify-content: start;
+        padding-left: 35px;
+        &__text {
+          font-size: 50px;
+        }
+        &__img {
+          width: 100px;
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      &__categories {
+        &__category {
+          font-size: 35px;
+        }
+      }
+
+      &__cards {
+        &__card {
+          &__text {
+            font-size: 40px;
+          }
+          &__more_btn {
+            font-size: 35px;
+          }
+          &__save_btn {
+            &__icon {
+              font-size: 50px;
+              --ionicon-stroke-width: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .profile_page__content {
+    &__profile_photo {
+      z-index: 2;
+      width: 80%;
+      img {
+        width: 50%;
+      }
+    }
+
+    &__profile_options {
+      &__option {
+        font-size: 25px;
+      }
+
+      &__options_list {
+        &__option {
+          a {
+            font-size: 25px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile_page__content {
+    &__profile_photo {
+      z-index: 2;
+      width: 80%;
+      img {
+        width: 50%;
+      }
+    }
+
+    &__profile_options {
+      &__option {
+        font-size: 25px;
+      }
+
+      &__options_list {
+        &__option {
+          a {
+            font-size: 25px;
+          }
+        }
+      }
+    }
+  }
+}

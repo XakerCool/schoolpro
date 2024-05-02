@@ -1,0 +1,42 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .register_page {
+    &__reg_or_login {
+      &__option {
+        font-size: 25px;
+      }
+    }
+    &__registration_form {
+      &__input {
+        font-size: 20px;
+      }
+    }
+  }
+  .reg {
+    &__add_text {
+      font-size: 25px;
+      a {
+        font-size: 25px;
+      }
+    }
+    &__button {
+      font-size: 25px;
+    }
+  }
+  .login {
+    &__add_text {
+      font-size: 25px;
+      a {
+        font-size: 25px;
+      }
+    }
+    &__button {
+      font-size: 25px;
+    }
+  }
+  .switch_to_reg_or_login_btn {
+    font-size: 25px;
+  }
+  .forgot_password, .policy {
+    font-size: 25px;
+  }
+}

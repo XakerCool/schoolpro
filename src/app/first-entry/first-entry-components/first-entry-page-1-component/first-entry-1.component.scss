@@ -14,3 +14,17 @@
   background-color: #FE082D;
   box-shadow: inset 5px 5px 15px 1px rgba(4,4,4,0.3);
 }
+
+@media (min-width: 768px), (min-width: 820px) {
+  .first_entry__1__text {
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .first_entry__1__text {
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+}

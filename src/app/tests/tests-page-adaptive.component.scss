@@ -1,0 +1,125 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .tests_page__content {
+    &__heading {
+      &__text {
+        font-size: 50px;
+      }
+    }
+
+    &__tests_list {
+      width: 100%;
+      height: 200px;
+
+      &__test {
+        width: 200px;
+        height: 100%;
+
+        &__name {
+          font-size: 30px;
+        }
+      }
+    }
+
+    &__quiz {
+      &__heading {
+        font-size: 45px;
+      }
+
+      &__quiz {
+        &__title {
+          &__icon {
+            width: 65px;
+            height: 55px;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          &__name {
+            font-size: 42px;
+          }
+        }
+
+        &__attempt_btn {
+          font-size: 30px;
+        }
+      }
+    }
+
+    &__get_full_access {
+      &__text {
+        &__text {
+          font-size: 32px;
+        }
+        &__more_btn {
+          font-size: 25px;
+        }
+      }
+
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .tests_page__content {
+    &__heading {
+      &__text {
+        font-size: 55px;
+      }
+    }
+
+    &__tests_list {
+      width: 100%;
+      height: 250px;
+
+      &__test {
+        width: 250px;
+        height: 100%;
+
+        &__name {
+          font-size: 35px;
+        }
+      }
+    }
+
+    &__quiz {
+      &__heading {
+        font-size: 48px;
+      }
+
+      &__quiz {
+        &__title {
+          &__icon {
+            width: 65px;
+            height: 55px;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          &__name {
+            font-size: 45px;
+          }
+        }
+
+        &__attempt_btn {
+          font-size: 33px;
+        }
+      }
+    }
+
+    &__get_full_access {
+      &__text {
+        &__text {
+          font-size: 40px;
+        }
+        &__more_btn {
+          font-size: 30px;
+        }
+      }
+
+    }
+  }
+}

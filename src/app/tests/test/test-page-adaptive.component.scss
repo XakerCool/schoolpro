@@ -1,0 +1,154 @@
+@media (min-width: 820px) {
+  .test_page__content {
+    &__up {
+      .like_button {
+        font-size: 50px;
+        --ionicon-stroke-width: 35px;
+      }
+
+      .go_back_arrow {
+        width: 30px;
+        height: 30px;
+        color: #000000;
+        &:before, &:after {
+          border-right: 6px solid;
+          height: 30px;
+          margin-top: -19px;
+          right: 10px;
+          top: 50%;
+          width: 0;
+        }
+        &:after {
+          margin-top: -1px;
+        }
+      }
+    }
+
+    &__outline {
+      &__heading {
+        &__icon {
+          width: 100px;
+          height: 100px;
+
+          img {
+            width: 60%;
+          }
+        }
+
+        &__test_name {
+          font-size: 42px;
+        }
+      }
+
+      &__questions {
+        &__question {
+          span {
+            font-size: 25px;
+          }
+        }
+      }
+    }
+
+    &__current_question {
+      &__question {
+        &__text {
+          font-size: 25px;
+        }
+      }
+      &__answers {
+        &__list {
+          &__answer {
+            &__letter {
+              font-size: 25px;
+            }
+            &__text {
+              font-size: 25px;
+            }
+          }
+        }
+      }
+    }
+
+    &__answer_btn {
+      font-size: 30px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .test_page__content {
+    &__up {
+      .like_button {
+        font-size: 50px;
+        --ionicon-stroke-width: 35px;
+      }
+
+      .go_back_arrow {
+        width: 30px;
+        height: 30px;
+        color: #000000;
+        &:before, &:after {
+          border-right: 6px solid;
+          height: 30px;
+          margin-top: -19px;
+          right: 10px;
+          top: 50%;
+          width: 0;
+        }
+        &:after {
+          margin-top: -1px;
+        }
+      }
+    }
+
+    &__outline {
+      &__heading {
+        &__icon {
+          width: 100px;
+          height: 100px;
+
+          img {
+            width: 60%;
+          }
+        }
+
+        &__test_name {
+          font-size: 45px;
+        }
+      }
+
+      &__questions {
+        &__question {
+          span {
+            font-size: 35px;
+          }
+        }
+      }
+    }
+
+    &__current_question {
+      &__question {
+        &__text {
+          font-size: 35px;
+          line-height: 55px;
+        }
+      }
+      &__answers {
+        &__list {
+          &__answer {
+            &__letter {
+              font-size: 30px;
+            }
+            &__text {
+              font-size: 30px;
+            }
+          }
+        }
+      }
+    }
+
+    &__answer_btn {
+      font-size: 35px;
+    }
+  }
+}

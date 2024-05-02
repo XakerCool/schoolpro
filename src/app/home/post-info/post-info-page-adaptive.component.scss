@@ -1,0 +1,32 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .post_info__content {
+    &__image {
+      height: 45%;
+    }
+    &__text {
+      span {
+        font-size: 25px;
+      }
+      h3 {
+        font-size: 40px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .post_info__content {
+    &__image {
+      height: 45%;
+    }
+    &__text {
+      span {
+        font-size: 30px;
+        line-height: 50px;
+      }
+      h3 {
+        font-size: 40px;
+      }
+    }
+  }
+}
