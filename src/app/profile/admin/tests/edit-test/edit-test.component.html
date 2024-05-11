@@ -1,0 +1,59 @@
+<header-component></header-component>
+<ion-content class="edit_test">
+  <div class="edit_test__content">
+    <div class="edit_test__content__up">
+      <a href="/user/admin/tests" class="go_back_arrow"></a>
+      <div class="like_button">
+        <ion-icon name="heart-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="edit_test__content__outline">
+      <div class="edit_test__content__outline__heading">
+        <div class="edit_test__content__outline__heading__icon">
+          <label for="TEST_ICON">
+            <img src="{{editingTest.iconPath}}" alt="">
+          </label>
+          <input type="file" name="TEST_ICON" id="TEST_ICON">
+        </div>
+        <div class="edit_test__content__outline__heading__test_name title">
+          <input type="text" name="TEST_NAME" id="TEST_NAME" placeholder="НАЗВАНИЕ" value="{{editingTest.name}}">
+        </div>
+      </div>
+      <div class="edit_test__content__outline__questions">
+        <div class="edit_test__content__outline__questions__question" *ngFor="let question of editingTest.questions; let i = index" data-id="{{i}}">
+          <span>{{i+1}}</span>
+        </div>
+        <button class="edit_test__content__outline__questions__add_question_btn">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="edit_test__content__current_question">
+      <div class="edit_test__content__current_question__question">
+        <span class="edit_test__content__current_question__question__topic" id="current_question_topic">
+          Тема:
+          <input type="text" name="QUESTION_TOPIC" id="QUESTION_TOPIC" placeholder="ИЗМЕНИТЬ" value="{{selectedQuestion.topic}}">
+        </span>
+        <br>
+        <span class="edit_test__content__current_question__question__text" id="current_question_text">
+          <textarea name="QUESTION_TEXT" id="QUESTION_TEXT" placeholder="ВОПРОС" [value]="selectedQuestion.question"></textarea>
+        </span>
+      </div>
+      <div class="edit_test__content__current_question__answers">
+        <ul class="edit_test__content__current_question__answers__list">
+          <li class="edit_test__content__current_question__answers__list__answer" (click)="checkAnswer(i)" *ngFor="let answer of selectedQuestion.answers; let i = index">
+            <span class="edit_test__content__current_question__answers__list__answer__letter">{{ alphabet[i]}}.</span>
+            <span class="edit_test__content__current_question__answers__list__answer__text">
+              <input type="text" value="{{answer.answer}}">
+            </span>
+            <span class="edit_test__content__current_question__answers__list__answer__check_is_answer">
+              <input type="radio" name="IS_ANSWER" id="IS_ANSWER">
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</ion-content>

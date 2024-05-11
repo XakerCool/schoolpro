@@ -13,8 +13,11 @@
     }
 
     &__courses {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
       &__course {
-
+        max-width: 49%;
         &__course_title {
           display: flex;
           align-items: center;
@@ -31,7 +34,7 @@
         }
 
         &__attempt_btn {
-          font-size: 30px;
+          font-size: 25px;
         }
       }
     }

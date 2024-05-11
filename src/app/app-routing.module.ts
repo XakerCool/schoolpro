@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { TabsComponent } from "./tabs/tabs.component";
+import {AdminPageComponent} from "./profile/admin/admin-page.component";
 
 const routes: Routes = [
   {
@@ -95,6 +96,66 @@ const routes: Routes = [
           {
             path: 'policy',
             loadChildren: () => import('./profile/policy/policy-page.module').then(m => m.PolicyPageModule)
+          },
+          {
+            path: 'admin',
+            children: [
+              {
+                path: '',
+                loadChildren: () => import('./profile/admin/admin-page.module').then(m => m.AdminPageModule)
+              },
+              {
+                path: 'courses',
+                children: [
+                  {
+                    path: '',
+                    loadChildren: () => import('./profile/admin/courses/admin-page-courses.module').then(m => m.AdminPageCoursesModule)
+                  },
+                  {
+                    path: 'edit/:id',
+                    loadChildren: () => import('./profile/admin/courses/edit-course/edit-course-page.module').then(m => m.EditCoursePageModule)
+                  },
+                  {
+                    path: 'create',
+                    loadChildren: () => import('./profile/admin/courses/create-course/create-course-page.module').then(m => m.CreateCoursePageModule)
+                  }
+                ]
+              },
+              {
+                path: 'posts',
+                children: [
+                  {
+                    path: '',
+                    loadChildren: () => import('./profile/admin/posts/admin-page-posts.module').then(m => m.AdminPagePostsModule)
+                  },
+                  {
+                    path: 'create',
+                    loadChildren: () => import('./profile/admin/posts/create-post/create-post-page.module').then(m => m.CreatePostPageModule)
+                  },
+                  {
+                    path: 'edit/:id',
+                    loadChildren: () => import('./profile/admin/posts/edit-post/edit-post-page.module').then(m => m.EditPostPageModule)
+                  }
+                ]
+              },
+              {
+                path: 'tests',
+                children: [
+                  {
+                    path: '',
+                    loadChildren: () => import('./profile/admin/tests/admin-page-tests.module').then(m => m.AdminPageTestsModule)
+                  },
+                  {
+                    path: 'create',
+                    loadChildren: () => import('./profile/admin/tests/create-test/create-test.module').then(m => m.CreateTestModule)
+                  },
+                  {
+                    path: 'edit/:id',
+                    loadChildren: () => import('./profile/admin/tests/edit-test/edit-test.module').then(m => m.EditTestModule)
+                  }
+                ]
+              }
+            ]
           }
         ]
       }

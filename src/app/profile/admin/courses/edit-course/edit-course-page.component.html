@@ -1,0 +1,64 @@
+<header-component></header-component>
+<ion-content class="edit_course">
+    <div class="edit_course__content">
+      <div class="edit_course__content__up">
+        <a href="/user/admin/courses" class="go_back_arrow"></a>
+        <div class="like_button">
+          <ion-icon name="heart-outline"></ion-icon>
+        </div>
+      </div>
+      <div class="edit_course__content__course_info">
+        <div class="edit_course__content__course_info__block">
+          <div class="edit_course__content__course_info__block__icon" [style.background-color]="selectedCourse.backgroundColor">
+            <img src="{{selectedCourse.iconPath}}" alt="">
+          </div>
+          <div class="edit_course__content__course_info__block__text">
+            <input class="title edit_course__content__course_info__block__text__input edit_course__content__input" value="{{selectedCourse.courseName}}" type="text"/>
+            <span class="rating">
+            <ion-icon name="star"></ion-icon>
+              {{selectedCourse.rating}}
+          </span>
+          </div>
+        </div>
+        <div class="edit_course__content__course_info__block">
+          <div class="edit_course__content__course_info__block__details">
+            <span class="heading">Детали курса</span>
+            <p class="edit_course__content__course_info__block__details__lh_count">
+              <span><input type="number" value="{{selectedCourse.lessonsCount}}" class="edit_course__content__input" style="width: 50px;"/> уроков</span>
+              <span>&#9679;</span>
+              <span><input type="number" value="{{selectedCourse.hours}}" class="edit_course__content__input" style="width: 50px;"/> Часов</span>
+            </p>
+            <div class="edit_course__content__course_info__block__details__available">
+              <span><input type="number" value="3" class="edit_course__content__input" style="width: 50px;"/> Доступно</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ol class="edit_course__content__lessons">
+        <li class="edit_course__content__lessons__lesson" *ngFor="let lesson of selectedCourse.lessons; let i = index">
+          <div class="edit_course__content__lessons__lesson__short">
+            <span>{{ i+1 }}: <input type="text" value="{{ lesson.name }}" class="edit_course__content__input"></span>
+            <ion-icon name="play-circle" class="show_btn"></ion-icon>
+            <div class="arrow_down hidden"></div>
+          </div>
+          <div class="edit_course__content__lessons__lesson__info hidden">
+            <div class="edit_course__content__lessons__lesson__info__lesson_link">
+              <span>Ссылка на урок</span>
+              <input type="text" value="{{lesson.lessonLink}}" class="edit_course__content__input">
+            </div>
+            <div class="edit_course__content__lessons__lesson__info__summary_link">
+              <span>Конспект</span>
+              <input type="text" value="{{lesson.lessonLink}}" class="edit_course__content__input">
+            </div>
+            <div class="edit_course__content__lessons__lesson__info__hw">
+              <span>Д/з</span>
+              <input type="text" value="{{lesson.hw}}" class="edit_course__content__input">
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  <div class="edit_course__content__save_btn">
+    <span>Сохранить</span>
+  </div>
+</ion-content>

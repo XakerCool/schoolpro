@@ -8,7 +8,10 @@
 
     &__user_courses {
       &__list {
+        flex-direction: row;
+        flex-wrap: wrap;
         &__item {
+          max-width: 49%;
           &__course_title {
             &__name {
               font-size: 35px;

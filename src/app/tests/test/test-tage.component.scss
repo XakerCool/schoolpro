@@ -91,7 +91,6 @@ ion-content {
         margin-left: 10px;
         color: #000000;
         font-size: 32px;
-        font-weight: 600;
       }
     }
 
@@ -162,6 +161,11 @@ ion-content {
 
     &__question {
       margin: 10px 0;
+      &__topic {
+        font-size: 20px;
+        line-height: 34px;
+        color: #FE082D;
+      }
       &__text {
         font-size: 20px;
         line-height: 34px;

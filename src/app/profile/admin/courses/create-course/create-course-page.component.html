@@ -1,0 +1,65 @@
+<header-component></header-component>
+<ion-content class="create_course">
+  <div class="create_course__content">
+    <div class="create_course__content__up">
+      <a href="/user/admin/courses" class="go_back_arrow"></a>
+      <div class="like_button">
+        <ion-icon name="heart-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="create_course__content__course_info">
+      <div class="create_course__content__course_info__block">
+        <div class="create_course__content__course_info__block__icon">
+          <input type="file">
+        </div>
+        <div class="create_course__content__course_info__block__text">
+          <input class="title create_course__content__course_info__block__text__input create_course__content__input" placeholder="Название" type="text"/>
+          <span class="rating">
+            <ion-icon name="star"></ion-icon>
+            5.0
+          </span>
+        </div>
+      </div>
+      <div class="create_course__content__course_info__block">
+        <div class="create_course__content__course_info__block__details">
+          <span class="heading">Детали курса</span>
+          <p class="create_course__content__course_info__block__details__lh_count">
+            <span><input type="number" placeholder="40" class="create_course__content__input" style="width: 50px;"/> уроков</span>
+            <span>&#9679;</span>
+            <span><input type="number" placeholder="60" class="create_course__content__input" style="width: 50px;"/> Часов</span>
+          </p>
+          <div class="create_course__content__course_info__block__details__available">
+            <span><input type="number" placeholder="n" class="create_course__content__input" style="width: 50px;"/> Доступно</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ol class="create_course__content__lessons">
+      <li class="create_course__content__lessons__lesson">
+        <div class="create_course__content__lessons__lesson__short">
+          <span>a: <input type="text" placeholder="Редактировать" class="create_course__content__input"></span>
+          <ion-icon name="play-circle" class="show_btn"></ion-icon>
+          <div class="arrow_down hidden"></div>
+        </div>
+        <div class="create_course__content__lessons__lesson__info hidden">
+          <div class="create_course__content__lessons__lesson__info__lesson_link">
+            <span>Ссылка на урок</span>
+            <input type="text" placeholder="link" class="create_course__content__input">
+          </div>
+          <div class="create_course__content__lessons__lesson__info__summary_link">
+            <span>Конспект</span>
+            <input type="text" placeholder="link" class="create_course__content__input">
+          </div>
+          <div class="create_course__content__lessons__lesson__info__hw">
+            <span>Д/з</span>
+            <input type="text" placeholder="link" class="create_course__content__input">
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+  <div class="create_course__content__btns">
+    <span class="create_course__content__btns__add_lesson">Добавить урок</span>
+    <span class="create_course__content__btns__save">Сохранить</span>
+  </div>
+</ion-content>

@@ -15,6 +15,7 @@ export class TestPageComponent implements OnInit{
     questions: [
       {
         id: 1,
+        topic: "lorem ipsum",
         question: "If M is mass of water that rises in capillary tube of radius ‘r’, then mass of water rising in a capillary tube of radius ‘2r’ is:",
         answers: [
           {
@@ -41,6 +42,7 @@ export class TestPageComponent implements OnInit{
       },
       {
         id: 2,
+        topic: "lorem ipsum",
         question: "Кто мы?2",
         answers: [
           {
@@ -67,6 +69,7 @@ export class TestPageComponent implements OnInit{
       },
       {
         id: 3,
+        topic: "lorem ipsum",
         question: "Кто мы?3",
         answers: [
           {
@@ -93,6 +96,7 @@ export class TestPageComponent implements OnInit{
       },
       {
         id: 4,
+        topic: "lorem ipsum",
         question: "Кто мы?4",
         answers: [
           {
@@ -119,6 +123,7 @@ export class TestPageComponent implements OnInit{
       },
       {
         id: 5,
+        topic: "lorem ipsum",
         question: "Кто мы?5",
         answers: [
           {
@@ -145,6 +150,7 @@ export class TestPageComponent implements OnInit{
       },
       {
         id: 6,
+        topic: "lorem ipsum",
         question: "Кто мы?6",
         answers: [
           {
@@ -171,6 +177,7 @@ export class TestPageComponent implements OnInit{
       },
       {
         id: 7,
+        topic: "lorem ipsum",
         question: "Кто мы?7",
         answers: [
           {
@@ -197,6 +204,7 @@ export class TestPageComponent implements OnInit{
       },
       {
         id: 8,
+        topic: "lorem ipsum",
         question: "Кто мы?8",
         answers: [
           {
@@ -229,7 +237,9 @@ export class TestPageComponent implements OnInit{
     // @ts-ignore
     window.addEventListener("load", () => {
       // @ts-ignore
-      document.getElementById("current_question").innerText = this.selectedQuestion.question
+      document.getElementById("current_question_text").innerText = this.selectedQuestion.question
+      // @ts-ignore
+      document.getElementById("current_question_topic").innerText = "Тема: " + this.selectedQuestion.topic
       this.selectQuestion();
     })
   }
@@ -245,7 +255,9 @@ export class TestPageComponent implements OnInit{
         // @ts-ignore
         this.selectedQuestion = this.quiz.questions[questionId]
         // @ts-ignore
-        document.getElementById("current_question").innerText = this.selectedQuestion.question
+        document.getElementById("current_question_text").innerText = this.selectedQuestion.question
+        // @ts-ignore
+        document.getElementById("current_question_topic").innerText = "Тема: " + this.selectedQuestion.topic
         this.highlightSelectedAnswers()
       })
     })

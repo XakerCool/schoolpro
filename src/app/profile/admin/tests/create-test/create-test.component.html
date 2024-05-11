@@ -1,0 +1,56 @@
+<header-component></header-component>
+<ion-content class="create_test">
+  <div class="create_test__content">
+    <div class="create_test__content__up">
+      <a href="/user/admin/tests" class="go_back_arrow"></a>
+      <div class="like_button">
+        <ion-icon name="heart-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="create_test__content__outline">
+      <div class="create_test__content__outline__heading">
+        <div class="create_test__content__outline__heading__icon">
+          <label for="TEST_ICON">
+          </label>
+          <input type="file" name="TEST_ICON" id="TEST_ICON">
+        </div>
+        <div class="create_test__content__outline__heading__test_name title">
+          <input type="text" name="TEST_NAME" id="TEST_NAME" placeholder="НАЗВАНИЕ">
+        </div>
+      </div>
+      <div class="create_test__content__outline__questions">
+        <div class="create_test__content__outline__questions__question">
+          <span>1</span>
+        </div>
+
+        <button class="create_test__content__outline__questions__add_question_btn">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="create_test__content__current_question">
+      <div class="create_test__content__current_question__question">
+        <span class="create_test__content__current_question__question__topic" id="current_question_topic">
+          Тема:
+          <input type="text" name="QUESTION_TOPIC" id="QUESTION_TOPIC" placeholder="ИЗМЕНИТЬ">
+        </span>
+        <br>
+        <span class="create_test__content__current_question__question__text" id="current_question_text">
+          <textarea name="QUESTION_TEXT" id="QUESTION_TEXT" placeholder="ВОПРОС"></textarea>
+        </span>
+      </div>
+      <div class="create_test__content__current_question__answers">
+        <ul class="create_test__content__current_question__answers__list">
+          <li class="create_test__content__current_question__answers__list__answer" *ngFor="let answer of currentQuestionAnswers; let i = index">
+            <span class="create_test__content__current_question__answers__list__answer__letter">{{ alphabet[i]}}.</span>
+            <span class="create_test__content__current_question__answers__list__answer__text">
+              <input type="text">
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</ion-content>

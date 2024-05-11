@@ -1,0 +1,41 @@
+<header-component></header-component>
+<ion-content class="admin_page_posts">
+  <div class="admin_page_posts__content">
+    <div class="admin_page_posts__content__background">
+      <img src="./assets/Squared%20Loops.png" alt="">
+      <img src="./assets/Squared%20Loops.png" alt="">
+      <img src="./assets/Squared%20Loops.png" alt="">
+    </div>
+    <div class="admin_page_posts__content__heading">
+      <span>Публикации</span>
+    </div>
+
+    <div class="admin_page_posts__content__existing_posts">
+      <ul class="admin_page_posts__content__existing_posts__list">
+        <li class="admin_page_posts__content__existing_posts__list__item" *ngFor="let post of existingPosts; let i = index">
+          <div class="admin_page_posts__content__existing_posts__list__item__background">
+            <img src="./assets/card-background.png" alt="">
+          </div>
+          <div class="admin_page_posts__content__existing_posts__list__item__post_title">
+            <span class="admin_page_posts__content__existing_posts__list__item__post_title__name">
+              {{post.postName.split("|")[0]}}
+              <br>
+              {{post.postName.split("|")[1]}}
+            </span>
+          </div>
+          <a href="/user/admin/posts/edit/{{post.id}}" class="admin_page_posts__content__existing_posts__list__item__change_btn">
+            <span>Изменить пост</span>
+          </a>
+          <div class="admin_page_posts__content__existing_posts__list__item__post_img">
+            <img src="./assets/card_img.png" alt="">
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <a href="/user/admin/posts/create" class="admin_page_posts__content__create_post">
+      <span>Создать пост</span>
+    </a>
+
+  </div>
+</ion-content>

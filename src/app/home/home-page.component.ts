@@ -5,4 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss', './home-page-adaptive.component.scss']
 })
-export class HomePageComponent {}
+export class HomePageComponent {
+  constructor() {
+  }
+}
