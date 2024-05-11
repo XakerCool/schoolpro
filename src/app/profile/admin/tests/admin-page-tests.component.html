@@ -1,0 +1,35 @@
+<header-component></header-component>
+<ion-content class="admin_page_tests">
+  <div class="admin_page_tests__content">
+    <div class="admin_page_tests__content__background">
+      <img src="./assets/Squared%20Loops.png" alt="">
+      <img src="./assets/Squared%20Loops.png" alt="">
+      <img src="./assets/Squared%20Loops.png" alt="">
+    </div>
+    <div class="admin_page_tests__content__heading">
+      <span>Тесты</span>
+    </div>
+
+    <div class="admin_page_tests__content__existing_tests">
+      <ul class="admin_page_tests__content__existing_tests__list">
+        <li class="admin_page_tests__content__existing_tests__list__item" *ngFor="let test of existingTests; let i = index" [style.background-color]="test.backgroundColor">
+          <div class="admin_page_tests__content__existing_tests__list__item__title">
+            <div class="admin_page_tests__content__existing_tests__list__item__title__icon">
+              <img src="{{test.img}}" alt="">
+            </div>
+            <div class="admin_page_tests__content__existing_tests__list__item__title__text">
+              <span>{{test.testName}}</span>
+            </div>
+          </div>
+          <a href="/user/admin/tests/edit/{{test.id}}" class="admin_page_tests__content__existing_tests__list__item__change_btn">
+            <span>Изменить тест</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <a href="/user/admin/tests/create" class="admin_page_tests__content__create_test">
+      <span>Создать тест</span>
+    </a>
+  </div>
+</ion-content>

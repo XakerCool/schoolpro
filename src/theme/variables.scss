@@ -242,3 +242,11 @@ html {
    */
   --ion-dynamic-font: var(--ion-default-dynamic-font);
 }
+body {
+  --ion-font-family: "Jost", sans-serif;
+  font-weight: 400;
+}
+.title {
+  --ion-font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}

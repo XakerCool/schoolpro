@@ -1,0 +1,37 @@
+<header-component></header-component>
+<ion-content class="admin_page_courses">
+  <div class="admin_page_courses__content">
+    <div class="admin_page_courses__content__background">
+      <img src="./assets/Squared%20Loops.png" alt="">
+      <img src="./assets/Squared%20Loops.png" alt="">
+      <img src="./assets/Squared%20Loops.png" alt="">
+    </div>
+    <div class="admin_page_courses__content__heading">
+      <span>Курсы</span>
+    </div>
+
+    <div class="admin_page_courses__content__existing_courses">
+      <ul class="admin_page_courses__content__existing_courses__list">
+        <li class="admin_page_courses__content__existing_courses__list__item" *ngFor="let course of existingCourses; let i = index" [style.background-color]="course.backgroundColor">
+          <div class="admin_page_courses__content__existing_courses__list__item__background">
+            <img src="./assets/card-background.png" alt="">
+          </div>
+          <div class="admin_page_courses__content__existing_courses__list__item__course_title">
+            <img src="{{course.iconPath}}" alt="" class="admin_page_courses__content__existing_courses__list__item__course_title__icon">
+            <span class="admin_page_courses__content__existing_courses__list__item__course_title__name">{{course.courseName}}</span>
+          </div>
+          <div class="admin_page_courses__content__existing_courses__list__item__price">
+            {{course.coursePrice}}
+          </div>
+          <a href="/user/admin/courses/edit/{{course.id}}" class="admin_page_courses__content__existing_courses__list__item__change_btn">
+            <span>Изменить курс</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <a href="/user/admin/courses/create" class="admin_page_courses__content__create_course">
+      <span>Создать курс</span>
+    </a>
+  </div>
+</ion-content>

@@ -1,0 +1,259 @@
+ion-content {
+  --ion-background-color: #ffffff;
+  position: relative;
+}
+
+.edit_course__content__save_btn {
+  z-index: 1;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 90%;
+  color: #ffffff;
+  font-size: 20px;
+  background-color: #FE082D;
+  padding: 30px;
+  box-shadow: inset 5px 5px 10px 0 rgba(4,4,4,0.25),
+  inset -5px -5px 10px 0 rgba(254,8,45,0.25),
+  0 2px 8px 0 rgba(254,8,45,0.08),
+  0 20px 32px 0 rgba(254,8,45,0.15);
+  border-radius: 26px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  ion-icon {
+    position: absolute;
+    left: 30px;
+    font-size: 40px;
+  }
+}
+
+.edit_course__content {
+  z-index: 2;
+  width: 100%;
+
+  padding: 20px 10px;
+  position: relative;
+
+  &__input {
+    background-color: #ffffff;
+    font-size: 18px;
+    border-radius: 15px;
+
+  }
+
+  &__course_info {
+    color: #000000;
+
+    &__block {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: row;
+
+
+      &__details {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 100%;
+
+        &__available {
+          background-color: #FFB71E;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          padding: 10px;
+          border-radius: 20px;
+          position: absolute;
+          right: 0;
+          bottom: 10px;
+          font-size: 15px;
+        }
+
+        .heading {
+          font-size: 24px;
+          margin-bottom: 10px;
+        }
+
+        &__lh_count {
+          font-size: 15px;
+          color: #8C8C8C;
+          margin: 0;
+          padding: 0;
+
+          span {
+            margin-right: 15px;
+          }
+        }
+      }
+
+
+      &__icon {
+        margin-right: 20px;
+        width: 65px;
+        height: 65px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        box-shadow: inset 5px 5px 10px 0 rgba(0,0,0,0.25),
+        inset -5px -5px 10px 0 rgba(8, 106, 254, 0.25),
+        0 2px 8px 0 rgba(8, 106, 254, 0.08),
+        0 20px 32px 0 rgba(8, 106, 254, 0.15);
+        img {
+          width: 60%;
+        }
+      }
+
+      &__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 32px;
+        font-weight: bold;
+        .rating {
+          font-size: 20px;
+          font-weight: normal;
+        }
+
+        &__input {
+          background-color: #ffffff;
+          font-size: 18px;
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+
+  &__up {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .like_button {
+      color: #000000;
+      font-size: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .liked {
+      color: #FE082D;
+    }
+
+    .go_back_arrow {
+      position: relative;
+      width: 10px;
+      height: 10px;
+      display: block;
+      padding: 10px 15px 10px 10px;
+      transform: rotate(180deg);
+
+      &:before, &:after {
+        border-right: 4px solid;
+        content: '';
+        display: block;
+        height: 20px;
+        margin-top: -14px;
+        position: absolute;
+        transform: rotate(135deg);
+        right: 10px;
+        top: 50%;
+        width: 0;
+        border-color: #000000;
+      }
+      &:after {
+        margin-top: -1px;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__lessons {
+    padding: 0;
+    margin: 20px 0 0 0;
+    &__lesson {
+      list-style-type: none;
+      margin: 10px 0;
+      color: #000000;
+      border: 1px solid #D9D9D9;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &__short {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &__lesson_link, &__hw, &__summary_link {
+          margin-top: 20px;
+          display: flex;
+          flex-direction: column;
+
+          span {
+            font-size: 22px;
+            font-weight: bold;
+          }
+          a {
+            text-decoration: none;
+            font-size: 15px;
+            margin-top: 5px;
+          }
+        }
+      }
+
+      ion-icon {
+        font-size: 25px;
+      }
+    }
+  }
+}
+.arrow_down {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  display: block;
+  padding: 10px 15px 10px 10px;
+
+  transform: rotate(90deg);
+
+  &:before, &:after {
+    border-right: 3px solid;
+    content: '';
+    display: block;
+    height: 20px;
+    margin-top: -14px;
+    position: absolute;
+    transform: rotate(135deg);
+    right: 10px;
+    top: 50%;
+    width: 0;
+    border-color: #000000;
+  }
+  &:after {
+    margin-top: -1px;
+    transform: rotate(45deg);
+  }
+}
+
+.hidden {
+  display: none;
+}

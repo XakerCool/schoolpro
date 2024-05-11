@@ -1,10 +1,16 @@
 .tabs {
+  position: relative;
   --ion-color-step-50: #ffffff;
+  background-color: transparent;
   &__bar {
-    padding: 0 10px 10px 10px;
-    background-color: #ffffff;
+    padding: 10px 10px 10px 10px;
+    background-color: transparent;
 
     --border: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 }
 .tab_bar_content {
@@ -16,7 +22,8 @@
   justify-content: space-between;
 
   border-radius: 25px;
-  background-color: #F6F7FA;
+  background-color: #edeef3;
+
 }
 ion-tab-button {
   background: transparent;

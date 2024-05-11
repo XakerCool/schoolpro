@@ -2,6 +2,8 @@ ion-content {
   --ion-background-color: #ffffff;
 }
 .courses_page__content {
+  margin-bottom: 55px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,13 +15,12 @@ ion-content {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 10px;
     width: 100%;
 
     &__text {
       color: black;
       font-size: 40px;
-      font-weight: bold;
       margin-right: 20px;
     }
   }
@@ -34,13 +35,15 @@ ion-content {
 
     overflow-y: scroll;
 
+    padding: 20px 10px;
+
     &__course {
       width: 100%;
 
       padding: 20px;
       margin: 15px 0;
 
-      border-radius: 25px;
+      border-radius: 38px;
 
       position: relative;
       display: flex;
@@ -48,6 +51,11 @@ ion-content {
       align-items: start;
 
       background-color: rgba(254, 8, 45, 0.8);
+
+      box-shadow: inset -5px -5px 10px 0 rgba(254, 8, 45, 0.25),
+      inset 5px 5px 10px 0 rgba(0,0,0,0.25),
+      0 2px 8px 0 rgba(254, 8, 45, 0.08),
+      0 20px 32px 0 rgba(254, 8, 45, 0.25);
 
       &__course_title {
         z-index: 2;
@@ -67,7 +75,7 @@ ion-content {
 
       &__attempt_btn {
         width: 100%;
-        padding: 10px;
+        padding: 10px 50px;
         background-color: #fff;
         color: black;
         border-radius: 18px;
@@ -85,7 +93,7 @@ ion-content {
       &__background {
         width: 100%;
         height: 100%;
-        border-radius: 25px;
+        border-radius: inherit;
         position: absolute;
         top: 0;
         left: 0;

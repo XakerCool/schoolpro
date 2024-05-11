@@ -1,0 +1,174 @@
+ion-content {
+  --ion-background-color: #ffffff;
+}
+.admin_page_courses__content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  margin-bottom: 130px;
+
+  &__create_course {
+    height: 50px;
+    z-index: 2;
+    position: fixed;
+    bottom: 65px;
+    left: 10px;
+    right: 10px;
+    background-color: #ffffff;
+
+    border-radius: 15px;
+    box-shadow: 0 2px 8px 0 rgba(254,8,45,0.08),
+      0 20px 32px 0 rgba(254,8,45,0.15),
+      inset 5px 5px 10px 0 rgba(255,255,255,0.25),
+      inset -5px -5px 10px 0 rgba(254,8,45,0.25);
+
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      color: #000000;
+      font-size: 20px;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    img {
+      position: absolute;
+      width: 100%;
+    }
+    :nth-child(1) {
+      top: -20%;
+    }
+    :nth-child(2) {
+      top: 25%;
+    }
+    :nth-child(3) {
+      bottom: 0;
+    }
+  }
+
+  &__heading {
+    background-color: #ffffff;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: inset -5px -5px 10px 0 rgba(158, 189, 191, 0.25),
+    inset 5px 5px 10px 0 rgba(255,255,255, 0.25),
+    0 2px 8px 0 rgba(40, 41, 61, 0.08),
+    0 20px 32px 0 rgba(96, 97, 112, 0.24);
+
+    padding: 20px 0;
+    border-radius: 15px;
+    width: 80%;
+
+    span {
+      font-size: 20px;
+      color: #D31027;
+    }
+  }
+
+  &__existing_courses {
+    padding: 0;
+    margin: 15px 0 0 0;
+
+    width: 100%;
+    height: 100%;
+
+    &__list {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      list-style-type: none;
+
+      &__item {
+        width: 100%;
+
+        padding: 20px;
+        margin: 15px 0;
+
+        border-radius: 38px;
+
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        background-color: rgba(254, 8, 45, 0.8);
+
+        box-shadow: inset -5px -5px 10px 0 rgba(254, 8, 45, 0.25),
+        inset 5px 5px 10px 0 rgba(0,0,0,0.25),
+        0 2px 8px 0 rgba(254, 8, 45, 0.08),
+        0 20px 32px 0 rgba(254, 8, 45, 0.25);
+
+        &__course_title {
+          z-index: 2;
+          &__icon {
+            margin-right: 20px;
+          }
+          &__name {
+            font-size: 30px;
+          }
+        }
+
+        &__price {
+          z-index: 2;
+          font-size: 40px;
+          align-self: end;
+        }
+
+        &__change_btn {
+          width: 100%;
+          padding: 10px 50px;
+          background-color: #fff;
+          color: black;
+          border-radius: 18px;
+          height: 55px;
+          box-shadow: 0px 8px 8px 0px rgba(254,8,45,0.08), inset -5px -5px 10px 0px rgba(254, 8, 45, 0.25), 0px 20px 32px 0px rgba(254, 8, 45, 0.15);
+          font-size: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          z-index: 2;
+          margin-top: 40px;
+          text-decoration: none;
+        }
+
+        &__background {
+          width: 100%;
+          height: 100%;
+          border-radius: inherit;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+
+          z-index: 0;
+
+          img {
+            border-radius: inherit;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}

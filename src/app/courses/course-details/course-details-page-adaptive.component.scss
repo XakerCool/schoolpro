@@ -1,4 +1,4 @@
-@media (max-width: 820px) {
+@media (min-width: 786px), (min-width: 820px) {
   .course_details__content {
     &__up {
       .like_button {
@@ -84,7 +84,8 @@
       width: 90%;
       left: 0;
       right: 0;
-      margin: auto;
+      margin: 0 auto 30px;
+
       ion-icon {
         font-size: 40px;
       }
@@ -188,7 +189,7 @@
       width: 90%;
       left: 0;
       right: 0;
-      margin: auto;
+      margin: 0 auto 30px;
       ion-icon {
         font-size: 43px;
       }
