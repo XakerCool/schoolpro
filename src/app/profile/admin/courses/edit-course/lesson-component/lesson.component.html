@@ -1,0 +1,20 @@
+<div class="edit_course__content__lessons__lesson__short">
+  <span>{{ lesson.id }}</span>
+  <input type="text" placeholder="Название" name="lesson_name" value="{{lesson.name}}">
+  <ion-icon name="play-circle" class="show_btn"></ion-icon>
+  <div class="arrow_down hidden"></div>
+</div>
+<div class="edit_course__content__lessons__lesson__info hidden">
+  <div class="edit_course__content__lessons__lesson__info__lesson_link">
+    <span>Ссылка на урок</span>
+    <input type="text" placeholder="link" class="edit_course__content__input" name="lesson_link" value="{{lesson.lessonLink}}">
+  </div>
+  <div class="edit_course__content__lessons__lesson__info__summary_link">
+    <span>Конспект</span>
+    <input type="text" placeholder="link" class="edit_course__content__input" name="lesson_summary" value="{{lesson.summaryLink}}">
+  </div>
+  <div class="edit_course__content__lessons__lesson__info__hw">
+    <span>Д/з</span>
+    <input type="text" placeholder="link" class="edit_course__content__input" name="hw" value="{{lesson.hw}}">
+  </div>
+</div>

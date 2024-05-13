@@ -10,10 +10,13 @@
     <div class="create_course__content__course_info">
       <div class="create_course__content__course_info__block">
         <div class="create_course__content__course_info__block__icon">
-          <input type="file">
+          <label for="course_icon">
+            <img src="./assets/pick_img.png" alt="" id="course_icon_img">
+          </label>
+          <input type="file" name="course_icon" id="course_icon" (change)="handleFileInput($event)">
         </div>
         <div class="create_course__content__course_info__block__text">
-          <input class="title create_course__content__course_info__block__text__input create_course__content__input" placeholder="Название" type="text"/>
+          <input class="title create_course__content__course_info__block__text__input create_course__content__input" placeholder="Название" type="text" id="course_name"/>
           <span class="rating">
             <ion-icon name="star"></ion-icon>
             5.0
@@ -24,18 +27,18 @@
         <div class="create_course__content__course_info__block__details">
           <span class="heading">Детали курса</span>
           <p class="create_course__content__course_info__block__details__lh_count">
-            <span><input type="number" placeholder="40" class="create_course__content__input" style="width: 50px;"/> уроков</span>
+            <span>{{course.lessons.length}} уроков</span>
             <span>&#9679;</span>
-            <span><input type="number" placeholder="60" class="create_course__content__input" style="width: 50px;"/> Часов</span>
+            <span><input type="number" placeholder="60" class="create_course__content__input" style="width: 50px;" id="course_hours_count"/> Часов</span>
           </p>
           <div class="create_course__content__course_info__block__details__available">
-            <span><input type="number" placeholder="n" class="create_course__content__input" style="width: 50px;"/> Доступно</span>
+            <span><input type="number" placeholder="n" class="create_course__content__input" style="width: 50px;" id="course_lessons_available_count"/> Доступно</span>
           </div>
         </div>
       </div>
     </div>
-    <ol class="create_course__content__lessons">
-      <li class="create_course__content__lessons__lesson">
+    <ol class="create_course__content__lessons" id="lessons_list">
+      <!--<li class="create_course__content__lessons__lesson">
         <div class="create_course__content__lessons__lesson__short">
           <span>a: <input type="text" placeholder="Редактировать" class="create_course__content__input"></span>
           <ion-icon name="play-circle" class="show_btn"></ion-icon>
@@ -56,10 +59,14 @@
           </div>
         </div>
       </li>
+      -->
+      <li *ngFor="let lesson of course.lessons; let i = index" class="create_course__content__lessons__lesson" (click)="showLessonInfo($event)" data-[id]="i">
+        <app-lesson [lesson]="lesson"></app-lesson>
+      </li>
     </ol>
   </div>
   <div class="create_course__content__btns">
-    <span class="create_course__content__btns__add_lesson">Добавить урок</span>
-    <span class="create_course__content__btns__save">Сохранить</span>
+    <span class="create_course__content__btns__add_lesson" (click)="addLesson()">Добавить урок</span>
+    <span class="create_course__content__btns__save" (click)="saveCourse()">Сохранить</span>
   </div>
 </ion-content>

@@ -12,19 +12,20 @@
       <div class="create_test__content__outline__heading">
         <div class="create_test__content__outline__heading__icon">
           <label for="TEST_ICON">
+            <img src="./assets/{{test.img.name}}" alt="" id="test_icon_img">
           </label>
-          <input type="file" name="TEST_ICON" id="TEST_ICON">
+          <input type="file" name="TEST_ICON" id="TEST_ICON" (change)="handleFileInput($event)">
         </div>
         <div class="create_test__content__outline__heading__test_name title">
           <input type="text" name="TEST_NAME" id="TEST_NAME" placeholder="НАЗВАНИЕ">
         </div>
       </div>
       <div class="create_test__content__outline__questions">
-        <div class="create_test__content__outline__questions__question">
-          <span>1</span>
+        <div class="create_test__content__outline__questions__question" *ngFor="let question of test.questions; let i = index" (click)="selectQuestion($event)" data-id="{{i}}">
+          <span>{{i + 1}}</span>
         </div>
 
-        <button class="create_test__content__outline__questions__add_question_btn">
+        <button class="create_test__content__outline__questions__add_question_btn" (click)="addNewQuestion()">
           <ion-icon name="add-circle-outline"></ion-icon>
         </button>
       </div>
@@ -43,13 +44,22 @@
       </div>
       <div class="create_test__content__current_question__answers">
         <ul class="create_test__content__current_question__answers__list">
-          <li class="create_test__content__current_question__answers__list__answer" *ngFor="let answer of currentQuestionAnswers; let i = index">
+          <li class="create_test__content__current_question__answers__list__answer" *ngFor="let answer of currentQuestionAnswers; let i = index" data-id="{{i}}">
             <span class="create_test__content__current_question__answers__list__answer__letter">{{ alphabet[i]}}.</span>
             <span class="create_test__content__current_question__answers__list__answer__text">
-              <input type="text">
+              <input type="text" class="create_test__content__current_question__answers__list__answer__text__input">
             </span>
           </li>
         </ul>
+      </div>
+    </div>
+
+    <div class="create_test__content__btns">
+      <div class="create_test__content__btns__save_question" (click)="saveQuestion()">
+        <span>Сохранить вопрос</span>
+      </div>
+      <div class="create_test__content__btns__save_test" (click)="saveTest()">
+        <span>Сохранить тест</span>
       </div>
     </div>
   </div>

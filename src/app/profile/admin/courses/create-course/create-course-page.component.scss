@@ -9,6 +9,7 @@ ion-content {
 
   padding: 20px 10px;
   position: relative;
+  margin-bottom: 100px;
 
   &__input {
     background-color: #ffffff;
@@ -17,7 +18,9 @@ ion-content {
 
   }
 
-  &__btns {
+  &__btns
+  {
+    z-index: 2;
     position: fixed;
     bottom: 70px;
     left: 10px;
@@ -118,8 +121,13 @@ ion-content {
         inset -5px -5px 10px 0 rgba(8, 106, 254, 0.25),
         0 2px 8px 0 rgba(8, 106, 254, 0.08),
         0 20px 32px 0 rgba(8, 106, 254, 0.15);
-        img {
-          width: 60%;
+        label {
+          width: 100%;
+          height: 100%;
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
 
@@ -193,6 +201,7 @@ ion-content {
     padding: 0;
     margin: 20px 0 0 0;
     &__lesson {
+      z-index: 1;
       list-style-type: none;
       margin: 10px 0;
       color: #000000;
@@ -268,5 +277,8 @@ ion-content {
 }
 
 .hidden {
+  display: none;
+}
+#course_icon {
   display: none;
 }
