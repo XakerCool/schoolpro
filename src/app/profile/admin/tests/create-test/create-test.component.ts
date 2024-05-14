@@ -66,8 +66,6 @@ export class CreateTestComponent implements OnInit{
     const testNameElem = document.getElementById("TEST_NAME") as HTMLInputElement;
     this.test.name = testNameElem.value;
 
-
-
     console.log(this.test)
   }
 

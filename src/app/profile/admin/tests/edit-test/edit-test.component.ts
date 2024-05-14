@@ -12,7 +12,10 @@ export class EditTestComponent implements OnInit {
     {
       id: 1,
       name: "История РК",
-      iconPath: "./assets/KZ.png",
+      img: {
+        name: "KZ.png",
+        size: 0
+      },
       questionsCount: 40,
       backgroundColor: "rgba(8, 106, 254, 1)",
       questions: [
@@ -237,7 +240,10 @@ export class EditTestComponent implements OnInit {
     {
       id: 2,
       name: "Математика",
-      iconPath: "./assets/books.png",
+      img: {
+        name: "books.png",
+        size: 0
+      },
       questionsCount: 40,
       backgroundColor: "rgba(254, 8, 45, 1)",
       questions: [
@@ -462,7 +468,10 @@ export class EditTestComponent implements OnInit {
     {
       id: 3,
       name: "Физика",
-      iconPath: "./assets/telescope.png",
+      img: {
+        name: "telescope.png",
+        size: 0
+      },
       questionsCount: 40,
       backgroundColor: "rgba(87, 254, 8, 1)",
       questions: [
@@ -689,7 +698,10 @@ export class EditTestComponent implements OnInit {
   editingTest = {
     id: 0,
     name: "none",
-    iconPath: 'none',
+    img: {
+      name: '',
+      size: ''
+    },
     questionsCount: 0,
     backgroundColor: 'none',
     questions: [
@@ -736,12 +748,6 @@ export class EditTestComponent implements OnInit {
       document.getElementById("QUESTION_TEXT").value = this.selectedQuestion.question
       // @ts-ignore
       document.getElementById("QUESTION_TOPIC").innerText = "Тема: " + this.selectedQuestion.topic
-      this.selectedQuestion.answers.forEach(answer => {
-        if (answer.isAnswer) {
-          // @ts-ignore
-          document.getElementById("IS_ANSWER").checked = true
-        }
-      })
       this.selectQuestion()
     })
   }
@@ -762,8 +768,6 @@ export class EditTestComponent implements OnInit {
         document.getElementById("QUESTION_TOPIC").innerText = "Тема: " + this.selectedQuestion.topic
         this.selectedQuestion.answers.forEach((answer, index) => {
           if (answer.isAnswer) {
-            // @ts-ignore
-            document.getElementById("IS_ANSWER").checked = true
             this.checkAnswer(index)
             answer.isAnswer = true;
           }
@@ -773,20 +777,44 @@ export class EditTestComponent implements OnInit {
     })
   }
   checkAnswer(answerIndex: number) {
-    const currentAnswers = document.querySelectorAll(".edit_test__content__current_question__answers__list__answer");
-    Array.from(currentAnswers[answerIndex].children).forEach(cA => {
-      if (cA.classList.contains("edit_test__content__current_question__answers__list__answer__check_is_answer")) {
-        setTimeout(() => {
-          // @ts-ignore
-          cA.children[0].checked = true;
-        }, 10)
-      }
-    })
-
     this.selectedQuestion.answers.forEach((answer, index) => {
       answer.isAnswer = false;
     })
     this.selectedQuestion.answers[answerIndex].isAnswer = true
-    console.log(this.selectedQuestion.answers)
+  }
+
+  saveQuestion() {
+    const qTopicElem = document.getElementById("QUESTION_TOPIC") as HTMLInputElement;
+    const qTextElem = document.getElementById("QUESTION_TEXT") as HTMLInputElement;
+
+    this.editingTest.questions[this.selectedQuestion.id-1].topic = qTopicElem.value;
+    this.editingTest.questions[this.selectedQuestion.id-1].question = qTextElem.value;
+
+    const answersElems = Array.from(document.getElementsByClassName("edit_test__content__current_question__answers__list__answer"));
+    answersElems.forEach(aE => {
+      const answerTextElem = aE.querySelector(".edit_test__content__current_question__answers__list__answer__text__input") as HTMLInputElement;
+      // @ts-ignore
+      this.editingTest.questions[this.selectedQuestion.id-1].answers[aE.id].answer = answerTextElem.value;
+    })
+  }
+
+  saveTest() {
+    const testNameElem = document.getElementById("TEST_NAME") as HTMLInputElement;
+    this.editingTest.name = testNameElem.value;
+
+    console.log(this.editingTest)
+  }
+
+  async handleFileInput(event: any) {
+    const file = event.target.files[0]; // Get the selected file
+    if (file) {
+      // Perform actions with the file, such as getting its path
+      const imagePath = URL.createObjectURL(file);
+      const imgElement = document.getElementById("test_icon_img") as HTMLImageElement;
+      imgElement.src = imagePath;
+
+      this.editingTest.img.name = file.name;
+      this.editingTest.img.size = file.size;
+    }
   }
 }

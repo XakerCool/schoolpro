@@ -12,9 +12,9 @@
       <div class="edit_test__content__outline__heading">
         <div class="edit_test__content__outline__heading__icon">
           <label for="TEST_ICON">
-            <img src="{{editingTest.iconPath}}" alt="">
+            <img src="./assets/{{editingTest.img.name}}" alt="" id="test_icon_img">
           </label>
-          <input type="file" name="TEST_ICON" id="TEST_ICON">
+          <input type="file" name="TEST_ICON" id="TEST_ICON" (change)="handleFileInput($event)">
         </div>
         <div class="edit_test__content__outline__heading__test_name title">
           <input type="text" name="TEST_NAME" id="TEST_NAME" placeholder="НАЗВАНИЕ" value="{{editingTest.name}}">
@@ -43,16 +43,22 @@
       </div>
       <div class="edit_test__content__current_question__answers">
         <ul class="edit_test__content__current_question__answers__list">
-          <li class="edit_test__content__current_question__answers__list__answer" (click)="checkAnswer(i)" *ngFor="let answer of selectedQuestion.answers; let i = index">
+          <li class="edit_test__content__current_question__answers__list__answer" (click)="checkAnswer(i)" *ngFor="let answer of selectedQuestion.answers; let i = index" data-id="{{i}}">
             <span class="edit_test__content__current_question__answers__list__answer__letter">{{ alphabet[i]}}.</span>
             <span class="edit_test__content__current_question__answers__list__answer__text">
-              <input type="text" value="{{answer.answer}}">
-            </span>
-            <span class="edit_test__content__current_question__answers__list__answer__check_is_answer">
-              <input type="radio" name="IS_ANSWER" id="IS_ANSWER">
+              <input type="text" value="{{answer.answer}}" class="edit_test__content__current_question__answers__list__answer__text__input">
             </span>
           </li>
         </ul>
+      </div>
+    </div>
+
+    <div class="edit_test__content__btns">
+      <div class="edit_test__content__btns__save_question" (click)="saveQuestion()">
+        <span>Сохранить вопрос</span>
+      </div>
+      <div class="edit_test__content__btns__save_test" (click)="saveTest()">
+        <span>Сохранить тест</span>
       </div>
     </div>
   </div>
