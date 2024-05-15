@@ -44,7 +44,7 @@
       </div>
       <div class="create_test__content__current_question__answers">
         <ul class="create_test__content__current_question__answers__list">
-          <li class="create_test__content__current_question__answers__list__answer" *ngFor="let answer of currentQuestionAnswers; let i = index" data-id="{{i}}">
+          <li class="create_test__content__current_question__answers__list__answer" (click)="checkAnswer(i, $event)" *ngFor="let answer of currentQuestionAnswers; let i = index" data-id="{{i}}">
             <span class="create_test__content__current_question__answers__list__answer__letter">{{ alphabet[i]}}.</span>
             <span class="create_test__content__current_question__answers__list__answer__text">
               <input type="text" class="create_test__content__current_question__answers__list__answer__text__input">

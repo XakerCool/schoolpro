@@ -2,10 +2,12 @@ ion-content {
   --ion-background-color: #ffffff;
 }
 .course_details__content {
-  height: 100%;
+  max-height: 90%;
+  overflow-y: scroll;
   width: 100%;
   padding: 20px;
   position: relative;
+  margin-bottom: 135px;
 
   &__course_info {
     color: #000000;
@@ -181,7 +183,7 @@ ion-content {
   }
 
   &__open_all_courses {
-    position: absolute;
+    position: fixed;
     bottom: 65px;
 
     width: 90%;

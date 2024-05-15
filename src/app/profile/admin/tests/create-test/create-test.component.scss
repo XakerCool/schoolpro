@@ -241,14 +241,14 @@ ion-content {
 
           &.selected {
             background-color: #FE082D;
-            padding: 5px 15px;
+            padding: 20px;
             box-shadow: 0 2px 8px 0 rgba(254, 8, 45, 0.08),
             0 20px 32px 0 rgba(254, 8, 45, 0.15),
             inset 5px 5px 10px 0 rgba(0,0,0,0.25),
             inset -5px -5px 10px 0 rgba(254, 8, 45, 0.25);
 
             span {
-              color: #ffffff;
+              color: #000000;
             }
           }
         }

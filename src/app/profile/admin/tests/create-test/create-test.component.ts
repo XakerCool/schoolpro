@@ -16,15 +16,19 @@ export class CreateTestComponent implements OnInit{
         questionAnswers: [
           {
             answer: "1",
+            isAnswer: false,
           },
           {
             answer: "1",
+            isAnswer: false,
           },
           {
             answer: "1",
+            isAnswer: false,
           },
           {
             answer: "1",
+            isAnswer: false,
           }
         ]
       }
@@ -45,6 +49,17 @@ export class CreateTestComponent implements OnInit{
 
   ngOnInit() {
 
+  }
+
+  checkAnswer(answerIndex: number, e: any) {
+    this.test.questions[this.currentQuestionId].questionAnswers.forEach((answer, index) => {
+      answer.isAnswer = false;
+    })
+    this.test.questions[this.currentQuestionId].questionAnswers[answerIndex].isAnswer = true;
+    Array.from(document.getElementsByClassName("create_test__content__current_question__answers__list__answer")).forEach(item => {
+      item.classList.remove("selected");
+    })
+    e.currentTarget.classList.add("selected");
   }
 
   saveQuestion() {
@@ -92,15 +107,19 @@ export class CreateTestComponent implements OnInit{
         questionAnswers: [
           {
             answer: (this.test.questions.length + 1).toString(),
+            isAnswer: false,
           },
           {
             answer: (this.test.questions.length + 1).toString(),
+            isAnswer: false,
           },
           {
             answer: (this.test.questions.length + 1).toString(),
+            isAnswer: false,
           },
           {
             answer: (this.test.questions.length + 1).toString(),
+            isAnswer: false,
           }
         ]
     });
@@ -123,9 +142,14 @@ export class CreateTestComponent implements OnInit{
   fillAnswers() {
     const answersElem = Array.from(document.getElementsByClassName("create_test__content__current_question__answers__list__answer"));
     answersElem.forEach(answElem => {
+      answElem.classList.remove("selected");
+    })
+    answersElem.forEach(answElem => {
       const answInputElem = answElem.querySelector(".create_test__content__current_question__answers__list__answer__text__input") as HTMLInputElement;
       // @ts-ignore
-      console.log(this.test.questions[this.currentQuestionId].questionAnswers[answElem.id])
+      if (this.test.questions[this.currentQuestionId].questionAnswers[answElem.id].isAnswer) {
+        answElem.classList.add("selected");
+      }
       // @ts-ignore
       answInputElem.value = this.test.questions[this.currentQuestionId].questionAnswers[answElem.id].answer;
     })
