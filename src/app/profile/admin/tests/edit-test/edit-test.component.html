@@ -21,10 +21,10 @@
         </div>
       </div>
       <div class="edit_test__content__outline__questions">
-        <div class="edit_test__content__outline__questions__question" *ngFor="let question of editingTest.questions; let i = index" data-id="{{i}}">
+        <div class="edit_test__content__outline__questions__question" *ngFor="let question of editingTest.questions; let i = index" data-id="{{i}}" (click)="selectQuestion($event)">
           <span>{{i+1}}</span>
         </div>
-        <button class="edit_test__content__outline__questions__add_question_btn">
+        <button class="edit_test__content__outline__questions__add_question_btn" (click)="addNewQuestion()">
           <ion-icon name="add-circle-outline"></ion-icon>
         </button>
       </div>
@@ -43,7 +43,7 @@
       </div>
       <div class="edit_test__content__current_question__answers">
         <ul class="edit_test__content__current_question__answers__list">
-          <li class="edit_test__content__current_question__answers__list__answer" (click)="checkAnswer(i)" *ngFor="let answer of selectedQuestion.answers; let i = index" data-id="{{i}}">
+          <li class="edit_test__content__current_question__answers__list__answer" (click)="checkAnswer(i, $event)" *ngFor="let answer of selectedQuestion.answers; let i = index" data-id="{{i}}">
             <span class="edit_test__content__current_question__answers__list__answer__letter">{{ alphabet[i]}}.</span>
             <span class="edit_test__content__current_question__answers__list__answer__text">
               <input type="text" value="{{answer.answer}}" class="edit_test__content__current_question__answers__list__answer__text__input">

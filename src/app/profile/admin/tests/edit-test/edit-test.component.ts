@@ -731,6 +731,7 @@ export class EditTestComponent implements OnInit {
   }
 
   testId = 0
+  currentQuestionId = 0
   constructor(private route: ActivatedRoute) {
   }
 
@@ -748,53 +749,91 @@ export class EditTestComponent implements OnInit {
       document.getElementById("QUESTION_TEXT").value = this.selectedQuestion.question
       // @ts-ignore
       document.getElementById("QUESTION_TOPIC").innerText = "Тема: " + this.selectedQuestion.topic
-      this.selectQuestion()
     })
   }
 
-  selectQuestion() {
-    const qButtons = Array.from(document.getElementsByClassName("edit_test__content__outline__questions__question"));
-    qButtons[0].classList.add("selected")
-    qButtons.forEach(qButton => {
-      qButton.addEventListener("click", () => {
-        qButtons.map(qButton => qButton.classList.remove("selected"))
-        const questionId = parseInt(<string>Array.from(qButton.attributes).find(el => el.name == "id")?.value)
-        qButton.classList.add("selected")
-        // @ts-ignore
-        this.selectedQuestion = this.editingTest.questions[questionId]
-        // @ts-ignore
-        document.getElementById("QUESTION_TEXT").value = this.selectedQuestion.question
-        // @ts-ignore
-        document.getElementById("QUESTION_TOPIC").innerText = "Тема: " + this.selectedQuestion.topic
-        this.selectedQuestion.answers.forEach((answer, index) => {
-          if (answer.isAnswer) {
-            this.checkAnswer(index)
-            answer.isAnswer = true;
+  addNewQuestion() {
+    // Add an empty object to currentQuestionAnswers array
+    this.editingTest.questions.push(
+      {
+        id: this.editingTest.questions.length + 1,
+        question: "lorem ipsum dolor sit amet",
+        topic: "lorem",
+        answers: [
+          {
+            answer: (this.editingTest.questions.length + 1).toString(),
+            isAnswer: false,
+          },
+          {
+            answer: (this.editingTest.questions.length + 1).toString(),
+            isAnswer: false,
+          },
+          {
+            answer: (this.editingTest.questions.length + 1).toString(),
+            isAnswer: false,
+          },
+          {
+            answer: (this.editingTest.questions.length + 1).toString(),
+            isAnswer: false,
           }
-        })
-        console.log(this.selectedQuestion.answers)
-      })
+        ]
+      });
+  }
+
+  selectQuestion(e: any) {
+    this.currentQuestionId = e.currentTarget.id;
+    const qButtons = Array.from(document.getElementsByClassName("edit_test__content__outline__questions__question"));
+    qButtons.forEach(qButton => {
+      qButton.classList.remove("selected")
+      // @ts-ignore
+      document.getElementById("QUESTION_TEXT").value = this.editingTest.questions[this.currentQuestionId].question
+      // @ts-ignore
+      document.getElementById("QUESTION_TOPIC").value = this.editingTest.questions[this.currentQuestionId].topic
+    })
+    e.currentTarget.classList.add("selected");
+    this.fillAnswers();
+  }
+
+  fillAnswers() {
+    const answersElem = Array.from(document.getElementsByClassName("edit_test__content__current_question__answers__list__answer"));
+    answersElem.forEach(answElem => {
+      answElem.classList.remove("selected");
+    })
+    answersElem.forEach(answElem => {
+      const answInputElem = answElem.querySelector(".edit_test__content__current_question__answers__list__answer__text__input") as HTMLInputElement;
+      // @ts-ignore
+      if (this.editingTest.questions[this.currentQuestionId].answers[answElem.id].isAnswer) {
+        answElem.classList.add("selected");
+      }
+      // @ts-ignore
+      answInputElem.value = this.editingTest.questions[this.currentQuestionId].answers[answElem.id].answer;
     })
   }
-  checkAnswer(answerIndex: number) {
-    this.selectedQuestion.answers.forEach((answer, index) => {
+
+  checkAnswer(answerIndex: number, e: any) {
+    this.editingTest.questions[this.currentQuestionId].answers.forEach((answer, index) => {
       answer.isAnswer = false;
     })
-    this.selectedQuestion.answers[answerIndex].isAnswer = true
+    this.editingTest.questions[this.currentQuestionId].answers[answerIndex].isAnswer = true
+    Array.from(document.getElementsByClassName("edit_test__content__current_question__answers__list__answer")).forEach(item => {
+      item.classList.remove("selected");
+    })
+    e.currentTarget.classList.add("selected");
   }
 
   saveQuestion() {
     const qTopicElem = document.getElementById("QUESTION_TOPIC") as HTMLInputElement;
     const qTextElem = document.getElementById("QUESTION_TEXT") as HTMLInputElement;
 
-    this.editingTest.questions[this.selectedQuestion.id-1].topic = qTopicElem.value;
-    this.editingTest.questions[this.selectedQuestion.id-1].question = qTextElem.value;
+
+    this.editingTest.questions[this.currentQuestionId].topic = qTopicElem.value;
+    this.editingTest.questions[this.currentQuestionId].question = qTextElem.value;
 
     const answersElems = Array.from(document.getElementsByClassName("edit_test__content__current_question__answers__list__answer"));
     answersElems.forEach(aE => {
       const answerTextElem = aE.querySelector(".edit_test__content__current_question__answers__list__answer__text__input") as HTMLInputElement;
       // @ts-ignore
-      this.editingTest.questions[this.selectedQuestion.id-1].answers[aE.id].answer = answerTextElem.value;
+      this.editingTest.questions[this.currentQuestionId].answers[aE.id].answer = answerTextElem.value;
     })
   }
 
@@ -802,7 +841,6 @@ export class EditTestComponent implements OnInit {
     const testNameElem = document.getElementById("TEST_NAME") as HTMLInputElement;
     this.editingTest.name = testNameElem.value;
 
-    console.log(this.editingTest)
   }
 
   async handleFileInput(event: any) {
