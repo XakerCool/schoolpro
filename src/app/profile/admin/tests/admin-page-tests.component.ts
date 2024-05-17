@@ -1,11 +1,12 @@
-import { Component } from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 
 @Component({
   selector: 'app-admin-page-tests',
   templateUrl: './admin-page-tests.component.html',
-  styleUrls: ['./admin-page-tests.component.scss']
+  styleUrls: ['./admin-page-tests.component.scss', './admin-page-tests-adaptive.component.scss']
 })
-export class AdminPageTestsComponent {
+export class AdminPageTestsComponent implements OnInit{
+  secondsOnPage = 0
   existingTests = [
     {
       id: 1,
@@ -32,4 +33,10 @@ export class AdminPageTestsComponent {
       backgroundColor: '#57FE08'
     }
   ]
+
+  ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
+  }
 }

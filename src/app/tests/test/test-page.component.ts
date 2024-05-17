@@ -232,8 +232,12 @@ export class TestPageComponent implements OnInit{
     ]
   }
   selectedQuestion = this.quiz.questions[0]
+  secondsOnPage = 0
 
   ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
     // @ts-ignore
     window.addEventListener("load", () => {
       // @ts-ignore

@@ -15,11 +15,15 @@ export class PostInfoPageComponent implements OnInit{
     img: ""
   }
   postId = -1
+  secondsOnPage = 0
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
     this.route.params.subscribe(params => {
       this.postId = params['id'];
     });

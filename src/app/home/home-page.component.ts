@@ -14,10 +14,14 @@ export class HomePageComponent implements OnInit{
       img: ""
     }
   ]
+  secondsOnPage = 0
   constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
     this.showAllPosts()
   }
 

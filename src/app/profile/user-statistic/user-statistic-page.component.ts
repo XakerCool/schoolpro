@@ -8,10 +8,14 @@ import {HttpClient} from "@angular/common/http";
 })
 export class UserStatisticPageComponent implements OnInit{
   userStats: any
+  secondsOnPage = 0
   constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
     this.http.get("http://5.35.80.178:8000/users/profile/statistics/").subscribe((res: any) => {
       this.userStats = res
     })

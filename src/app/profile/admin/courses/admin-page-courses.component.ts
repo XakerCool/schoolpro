@@ -1,11 +1,12 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-admin-page-courses',
   templateUrl: './admin-page-courses.component.html',
   styleUrls: ['./admin-page-courses.component.scss']
 })
-export class AdminPageCoursesComponent {
+export class AdminPageCoursesComponent implements OnInit{
 
   existingCourses = [
     {
@@ -120,5 +121,17 @@ export class AdminPageCoursesComponent {
       ]
     },
   ]
+  secondsOnPage = 0
+  constructor(private http: HttpClient) {
+  }
+
+ ngOnInit() {
+   setInterval(() => {
+     this.secondsOnPage++
+   }, 1000)
+    this.http.get("http://5.35.80.178:8000/courses/courses/").subscribe((res: any) => {
+      this.existingCourses = res
+    })
+ }
 
 }

@@ -14,11 +14,15 @@ export class ProfilePageComponent implements OnInit {
     phone: "",
     avatar: ""
   }
+  secondsOnPage = 0
 
   constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
     this.http.get('http://5.35.80.178:8000/users/profile/').subscribe(data => {
       this.user = data as any;
     }, error => {

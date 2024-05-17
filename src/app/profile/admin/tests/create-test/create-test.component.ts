@@ -46,9 +46,12 @@ export class CreateTestComponent implements OnInit{
     {}
   ]
   currentQuestionId = 0
+  secondsOnPage = 0
 
   ngOnInit() {
-
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
   }
 
   checkAnswer(answerIndex: number, e: any) {

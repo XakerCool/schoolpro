@@ -6,6 +6,7 @@ import {HttpClient} from "@angular/common/http";
    styleUrls: ["./user-courses.component.scss", "./user-courses-adaptive.component.scss"]
  })
 export class UserCoursesPageComponent implements OnInit{
+   secondsOnPage = 0
    userCourses = [
      {
        id: 1,
@@ -30,6 +31,9 @@ export class UserCoursesPageComponent implements OnInit{
    }
 
    ngOnInit() {
+     setInterval(() => {
+       this.secondsOnPage++
+     }, 1000)
      this.http.get("http://5.35.80.178:8000/users/profile/courses/").subscribe((res: any) => {
        this.userCourses = res;
      }, error => {
