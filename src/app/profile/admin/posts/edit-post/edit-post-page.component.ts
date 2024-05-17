@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {handleFileInput} from "../helper";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-edit-post-page',
@@ -54,18 +55,30 @@ export class EditPostPageComponent implements OnInit{
       name: "",
       size: 0
     },
-    postText: "none"
+    postText: "none",
+    imageAsFile: null
   }
   postId = 0
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.postId = params['id'];
       // @ts-ignore
-      this.editingPost = this.existingPosts.find(post => post.id == this.postId)
+      // this.editingPost = this.existingPosts.find(post => post.id == this.postId)
+      this.http.get("http://5.35.80.178:8000/manage/news/"+this.postId+"/").subscribe((res: any) => {
+        this.editingPost = res
+      })
     });
+  }
+
+  deletePost() {
+    this.http.delete("http://5.35.80.178:8000/manage/news/"+this.postId+"/").subscribe((res: any) => {
+      console.log(res)
+    }, error => {
+      console.error(error)
+    })
   }
 
   saveChanges() {
@@ -78,6 +91,18 @@ export class EditPostPageComponent implements OnInit{
     this.editingPost.postName = topic;
     this.editingPost.postText = text;
 
+    this.http.put("http://5.35.80.178:8000/manage/news/"+this.postId+"/",
+      {
+        "title": this.editingPost.postName,
+        "description": this.editingPost.postText,
+        "image": this.editingPost.imageAsFile
+      }
+    ).subscribe((res: any) => {
+      console.log(res)
+    }, error => {
+      console.error(error)
+    })
+
     console.log(this.editingPost)
   }
 
@@ -89,6 +114,7 @@ export class EditPostPageComponent implements OnInit{
       imgElement.src = imagePath;
       this.editingPost.postImg.name = imageFile.name;
       this.editingPost.postImg.size = imageFile.size;
+      this.editingPost.imageAsFile = imageFile;
     } else {
       console.log("No image file selected");
     }

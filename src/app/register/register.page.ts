@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
+
 @Component({
   selector: 'app-register',
   templateUrl: 'register.page.html',
@@ -6,7 +9,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class RegisterPage implements OnInit{
 
-  constructor() {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.switchEntry();
@@ -34,4 +37,52 @@ export class RegisterPage implements OnInit{
     })
   }
 
+  login() {
+    const passwordElem = document.getElementById("password") as HTMLInputElement;
+    const credentialsElem = document.getElementById("email_phone_num") as HTMLInputElement;
+
+    const password = passwordElem.value;
+    const credentials = credentialsElem.value;
+
+    this.http.post('http://5.35.80.178:8000/login/',
+{
+        email: credentials,
+        password: password
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    ).subscribe((res: any) => {
+      if (res.message.toLowerCase() == "Login successful".toLowerCase()) {
+        this.router.navigate(['/home/']);
+      }
+    })
+  }
+
+  register() {
+    const passwordElem = document.getElementById("password") as HTMLInputElement;
+    const credentialsElem = document.getElementById("email_phone_num") as HTMLInputElement;
+
+    const password = passwordElem.value;
+    const credentials = credentialsElem.value;
+
+    this.http.post('http://5.35.80.178:8000/register/',
+      {
+        email: credentials,
+        phone: '',
+        password: password
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    ).subscribe((res: any) => {
+      if (res.message.toLowerCase() == "User created successfully. Please verify your account.".toLowerCase()) {
+        this.router.navigate(['/home/']);
+      }
+    })
+  }
 }

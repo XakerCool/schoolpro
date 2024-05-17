@@ -7,7 +7,7 @@
     <button class="register_page__reg_or_login__log_option register_page__reg_or_login__option" id="login">Войти</button>
   </div>
   <form action="" class="register_page__registration_form">
-    <input type="text" placeholder="Email/Номер телефона" name="email_phone_num" class="register_page__registration_form__input">
+    <input type="text" placeholder="Email/Номер телефона" name="email_phone_num" id="email_phone_num" class="register_page__registration_form__input">
     <div class="register_page__registration_form__password_block">
       <input type="password" placeholder="Пароль " name="password" id="password" class="register_page__registration_form__input">
       <img src="./assets/show_password.png" alt="" class="show_password">
@@ -15,14 +15,14 @@
 
   </form>
   <div class="reg" id="reg_input">
-    <button class="reg__button" id="register_btn">Зарегистрироваться</button>
+    <button class="reg__button" id="register_btn" (click)="register()">Зарегистрироваться</button>
     <div class="reg__add_text">
       <p>С регистрацией, вы согласны с <a href="/policy" class="policy">условиями</a></p>
       <p>Есть аккаунт? <button class="switch_to_reg_or_login_btn">Войти</button></p>
     </div>
   </div>
   <div class="login hidden" id="log_input">
-    <button class="login__button" id="login_btn">Войти</button>
+    <button class="login__button" id="login_btn" (click)="login()">Войти</button>
     <div class="login__add_text">
       <p>Забыли пароль? <a href="/forgot-password" class="forgot_password">Тык</a></p>
       <p>Нет аккаунта? <button class="switch_to_reg_or_login_btn">Регистрация</button></p>

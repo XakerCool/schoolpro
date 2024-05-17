@@ -1,10 +1,11 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
  @Component({
    selector: 'app-user-courses-page',
    templateUrl: './user-courses.component.html',
    styleUrls: ["./user-courses.component.scss", "./user-courses-adaptive.component.scss"]
  })
-export class UserCoursesPageComponent {
+export class UserCoursesPageComponent implements OnInit{
    userCourses = [
      {
        id: 1,
@@ -25,6 +26,14 @@ export class UserCoursesPageComponent {
        backgroundColor: "rgba(254, 8, 45, 1)",
      }
    ]
-   constructor() {
+   constructor(private http: HttpClient) {
+   }
+
+   ngOnInit() {
+     this.http.get("http://5.35.80.178:8000/users/profile/courses/").subscribe((res: any) => {
+       this.userCourses = res;
+     }, error => {
+       console.error(error)
+     })
    }
  }

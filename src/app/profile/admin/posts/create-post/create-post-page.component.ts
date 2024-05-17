@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import { handleFileInput } from "../helper";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-create-post',
@@ -13,7 +14,11 @@ export class CreatePostPageComponent {
       size: 0
     },
     topic: "none",
-    text: "none"
+    text: "none",
+    imageAsFile: null
+  }
+
+  constructor(private http: HttpClient) {
   }
 
   savePost() {
@@ -26,6 +31,18 @@ export class CreatePostPageComponent {
     this.creatingPost.topic = topic;
     this.creatingPost.text = text;
 
+    this.http.post("http://5.35.80.178:8000/manage/news/",
+      {
+        "title": this.creatingPost.topic,
+        "description": this.creatingPost.text,
+        "image": this.creatingPost.imageAsFile
+      }
+    ).subscribe((res: any) => {
+      console.log(res)
+    }, error => {
+      console.error(error)
+    })
+
     console.log(this.creatingPost)
   }
 
@@ -34,5 +51,6 @@ export class CreatePostPageComponent {
     // @ts-ignore
     this.creatingPost.image.name = file.name;
     this.creatingPost.image.size = file.size;
+    this.creatingPost.imageAsFile = file;
   }
 }
