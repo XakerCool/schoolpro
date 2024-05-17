@@ -732,10 +732,14 @@ export class EditTestComponent implements OnInit {
 
   testId = 0
   currentQuestionId = 0
+  secondsOnPage = 0
   constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
     this.route.params.subscribe(params => {
       this.testId = params['id'];
       // @ts-ignore

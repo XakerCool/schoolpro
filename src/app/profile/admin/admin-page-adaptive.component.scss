@@ -1,0 +1,10 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .admin_page__content {
+    &__sections {
+      width: 80%;
+    }
+  }
+}
+
+
+@media (min-width: 1024px) {}

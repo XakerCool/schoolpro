@@ -33,11 +33,15 @@ export class AdminPagePostsComponent implements OnInit{
       postText: "asdasdasdaddasdasdasdasddasdasdasdasdasdadasdasdasdsadasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd"
     },
   ]
+  secondsOnPage = 0
 
   constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
     this.http.get('http://5.35.80.178:8000/manage/news/').subscribe(data => {
       const dataObj = data as any;
       this.existingPosts = dataObj.results;

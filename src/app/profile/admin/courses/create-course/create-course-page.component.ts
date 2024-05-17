@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {validateInputData} from '../validator';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-create-course-page-component',
@@ -13,27 +14,42 @@ export class CreateCoursePageComponent implements OnInit {
       name: '',
       size: 0
     },
-    name: '',
+    title: '',
     lessonsCount: 0,
     hoursCount: 0,
     lessonsAvailable: 0,
     lessons: []
   };
+  secondsOnPage = 0
 
-  ngOnInit() {}
+  constructor(private http: HttpClient) {
+  }
+
+  ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
+  }
 
   saveCourse() {
     const courseNameElement = document.getElementById("course_name") as HTMLInputElement;
     const hoursCountElement = document.getElementById("course_hours_count") as HTMLInputElement;
     const lessonsAvailableElement = document.getElementById("course_lessons_available_count") as HTMLInputElement;
 
-    this.course.name = courseNameElement.value;
+    this.course.title = courseNameElement.value;
     this.course.hoursCount = parseInt(hoursCountElement.value);
     this.course.lessonsAvailable = parseInt(lessonsAvailableElement.value);
 
-    validateInputData(this.course.name, this.course.hoursCount, this.course.lessonsAvailable, this.course.lessonsCount);
+    validateInputData(this.course.title, this.course.hoursCount, this.course.lessonsAvailable, this.course.lessonsCount);
 
     this.attachLessonsInfo();
+
+    this.http.post("http://5.35.80.178:8000/courses/courses/",
+      {
+        "title": this.course.title,
+
+      })
+
     console.log(this.course)
   }
 

@@ -6,12 +6,16 @@ import {Component, input, OnInit} from "@angular/core";
   styleUrls: ['verification.page.scss']
 })
 export class VerificationPage implements OnInit {
+  secondsOnPage = 0
   constructor() {
   }
 
   ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
     this.moveToNextInput()
-    this.login("123456")
+    // this.login("123456")
   }
 
   moveToNextInput() {

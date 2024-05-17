@@ -11,10 +11,14 @@ export class CourseDetailsPageComponent implements OnInit{
 
   courseId: any
   selectedCourse: any
+  secondsOnPage = 0
 
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
     this.route.params.subscribe(params => {
       this.courseId = params['id'];
     });

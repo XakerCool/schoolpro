@@ -147,10 +147,14 @@ export class EditCoursePageComponent implements OnInit{
 
   courseId: any
   selectedCourse: any
+  secondsOnPage = 0
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
     this.route.params.subscribe(params => {
       this.courseId = params['id'];
       this.selectedCourse = this.courses.find(course => course.id == this.courseId)

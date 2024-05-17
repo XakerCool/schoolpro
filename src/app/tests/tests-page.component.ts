@@ -33,11 +33,14 @@ export class TestsPageComponent implements OnInit{
       seconds: 59
     }
   }
-
+  secondsOnPage = 0
   constructor() {
   }
 
   ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
     this.decreaseTime()
   }
 

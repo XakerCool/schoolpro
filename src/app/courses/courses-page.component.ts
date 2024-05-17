@@ -121,10 +121,14 @@ export class CoursesPageComponent implements OnInit{
       ]
     },
   ]
+  secondsOnPage = 0
   constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
     this.http.get("http://5.35.80.178:8000/courses/courses/").subscribe((res: any) => {
       console.log(res)
       this.courses = res

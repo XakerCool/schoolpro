@@ -8,10 +8,13 @@ import {Router} from "@angular/router";
   styleUrls: ['register.page.scss', './register-page-adaptive.component.scss']
 })
 export class RegisterPage implements OnInit{
-
+  secondsOnPage = 0
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
     this.switchEntry();
   }
 

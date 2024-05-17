@@ -59,10 +59,14 @@ export class EditPostPageComponent implements OnInit{
     imageAsFile: null
   }
   postId = 0
+  secondsOnPage = 0
   constructor(private route: ActivatedRoute, private http: HttpClient) {
   }
 
   ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
     this.route.params.subscribe(params => {
       this.postId = params['id'];
       // @ts-ignore

@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import { handleFileInput } from "../helper";
 import {HttpClient} from "@angular/common/http";
 
@@ -7,7 +7,7 @@ import {HttpClient} from "@angular/common/http";
   templateUrl: './create-post-page.component.html',
   styleUrls: ['./create-post-page.component.scss']
 })
-export class CreatePostPageComponent {
+export class CreatePostPageComponent implements OnInit{
   creatingPost = {
     image: {
       name: "none",
@@ -17,8 +17,15 @@ export class CreatePostPageComponent {
     text: "none",
     imageAsFile: null
   }
+  secondsOnPage = 0
 
   constructor(private http: HttpClient) {
+  }
+
+  ngOnInit() {
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
   }
 
   savePost() {

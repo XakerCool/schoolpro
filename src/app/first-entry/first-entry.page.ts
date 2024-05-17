@@ -6,10 +6,14 @@ import {Component, OnInit} from "@angular/core"
   styleUrls: ["first-entry.page.scss"]
 })
 export class FirstEntryPage implements OnInit{
+  secondsOnPage = 0;
   constructor() {}
 
   ngOnInit(): void {
     this.changePage()
+    setInterval(() => {
+      this.secondsOnPage++
+    }, 1000)
   }
 
   changePage() {
