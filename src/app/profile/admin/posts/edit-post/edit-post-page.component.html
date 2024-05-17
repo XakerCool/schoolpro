@@ -10,8 +10,13 @@
       <input type="text" placeholder="Тема" id="POSTTOPIC" value="{{editingPost.postName}}">
       <textarea placeholder="текст" id="POSTTEXT" value="{{editingPost.postText}}"></textarea>
     </div>
-    <div class="edit_post__content__save_btn" (click)="saveChanges()">
-      <span>Сохранить</span>
+    <div class="edit_post__content__btns">
+      <div class="edit_post__content__btns__delete_btn" (click)="deletePost()">
+        <span>Удалить пост</span>
+      </div>
+      <div class="edit_post__content__btns__save_btn" (click)="saveChanges()">
+        <span>Сохранить пост</span>
+      </div>
     </div>
     <a href="/user/admin/posts" class="edit_post__content__go_back_arrow"></a>
   </div>

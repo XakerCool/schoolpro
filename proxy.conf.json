@@ -1,0 +1,7 @@
+{
+  "/": {
+    "target": "http://5.35.80.178:8000",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

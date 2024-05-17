@@ -11,29 +11,32 @@
     </div>
     <div class="edit_profile__content__profile_info">
       <div class="edit_profile__content__profile_info__avatar">
-        <img src="./assets/profile_photo.png" alt="">
+        <label for="avatar">
+          <img src="./assets/profile_photo.png" alt="" id="picked_photo">
+        </label>
+        <input type="file" name="avatar" id="avatar" (change)="changeAvatar($event)" value="{{user.avatar}}">
       </div>
       <div class="edit_profile__content__profile_info__user_data">
         <form action="">
-          <label for="">
-            <span>Name</span>
-            <input type="text" name="name" id="name" placeholder="Name">
+          <label for="first_name">
+            <span>Имя</span>
+            <input type="text" name="first_name" id="first_name" placeholder="Имя" value="{{user.first_name}}">
           </label>
-          <label for="">
-            <span>Username</span>
-            <input type="text" name="username" id="username" placeholder="Username">
+          <label for="last_name">
+            <span>Фамилия</span>
+            <input type="text" name="last_name" id="last_name" placeholder="Фамилия"  value="{{user.last_name}}">
           </label>
-          <label for="">
-            <span>Password</span>
-            <input type="password" name="password" id="password" placeholder="Password">
-          </label>
-          <label for="">
+          <label for="email">
             <span>E-mail</span>
-            <input type="text" name="email" id="email" placeholder="Email">
+            <input type="text" name="email" id="email" placeholder="Email"  value="{{user.email}}">
+          </label>
+          <label for="phone">
+            <span>Телефон</span>
+            <input type="text" name="phone" id="phone" placeholder="+7 777 777 7777"  value="{{user.phone}}">
           </label>
         </form>
       </div>
-      <div class="edit_profile__content__profile_info__save_btn">
+      <div class="edit_profile__content__profile_info__save_btn" (click)="updateProfile()">
         <span>Save</span>
       </div>
     </div>

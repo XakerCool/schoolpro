@@ -9,9 +9,11 @@ import { AppComponent } from './app.component';
 
 import { TabsComponent } from "./tabs/tabs.component";
 
+import { HttpClientModule } from "@angular/common/http";
+
 @NgModule({
   declarations: [AppComponent, TabsComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

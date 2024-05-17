@@ -7,8 +7,8 @@
       <img src="./assets/Squared%20Loops.png" alt="">
     </div>
     <div class="profile_page__content__profile_photo">
-      <img src="./assets/profile_photo.png" alt="">
-      <span class="profile_page__content__profile_photo__name title">Дарья</span>
+      <img src="{{user.avatar}}" alt="">
+      <span class="profile_page__content__profile_photo__name title">{{user.first_name}} {{user.last_name}}</span>
     </div>
     <div class="profile_page__content__profile_options">
       <a href="user/user-courses" class="profile_page__content__profile_options__option">
@@ -44,9 +44,9 @@
           </a>
         </li>
       </ul>
-      <a href="" class="profile_page__content__profile_options__option">
+      <button href="" class="profile_page__content__profile_options__option" (click)="logout()">
         <span>Выйти</span>
-      </a>
+      </button>
     </div>
   </div>
 </ion-content>
