@@ -5,7 +5,7 @@ import {validateInputData} from "../validator";
 @Component({
   selector: 'app-edit-course-page',
   templateUrl: './edit-course-page.component.html',
-  styleUrls: ['./edit-course-page.component.scss']
+  styleUrls: ['./edit-course-page.component.scss', './edit-course-page-adaptive.component.scss']
 })
 export class EditCoursePageComponent implements OnInit{
   courses = [

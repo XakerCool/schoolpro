@@ -7,4 +7,17 @@
 }
 
 
-@media (min-width: 1024px) {}
+@media (min-width: 1024px) {
+  .admin_page__content {
+    &__sections {
+      &__section {
+        height: 80px;
+        a {
+          span {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+}

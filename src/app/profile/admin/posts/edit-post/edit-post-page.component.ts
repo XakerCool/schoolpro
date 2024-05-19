@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
 @Component({
   selector: 'app-edit-post-page',
   templateUrl: './edit-post-page.component.html',
-  styleUrls: ['./edit-post-page.component.scss']
+  styleUrls: ['./edit-post-page.component.scss', './edit-post-page-adaptive.component.scss']
 })
 export class EditPostPageComponent implements OnInit{
   existingPosts = [

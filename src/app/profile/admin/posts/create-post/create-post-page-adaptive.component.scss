@@ -1,0 +1,37 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .create_post__content {
+    padding: 0 10%;
+
+    &__save_btn {
+      margin: 0 auto;
+      max-width: 60%;
+    }
+
+    &__text {
+      textarea {
+        max-height: 420px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .create_post__content {
+
+    &__save_btn {
+      bottom: 100px;
+      margin: 0 auto;
+      max-width: 60%;
+      height: 80px;
+      span {
+        font-size: 30px;
+      }
+    }
+
+    &__text {
+      input, textarea {
+        font-size: 30px;
+      }
+    }
+  }
+}

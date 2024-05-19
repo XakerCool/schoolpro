@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post-page.component.html',
-  styleUrls: ['./create-post-page.component.scss']
+  styleUrls: ['./create-post-page.component.scss', './create-post-page-adaptive.component.scss']
 })
 export class CreatePostPageComponent implements OnInit{
   creatingPost = {

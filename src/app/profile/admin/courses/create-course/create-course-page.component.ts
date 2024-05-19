@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
 @Component({
   selector: 'app-create-course-page-component',
   templateUrl: './create-course-page.component.html',
-  styleUrls: ['./create-course-page.component.scss']
+  styleUrls: ['./create-course-page.component.scss', './create-course-page-adaptive.component.scss']
 })
 export class CreateCoursePageComponent implements OnInit {
 

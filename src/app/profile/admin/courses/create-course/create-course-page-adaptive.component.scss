@@ -1,0 +1,74 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .create_course__content {
+    padding: 0 10%;
+    margin-bottom: 160px;
+
+    &__input {
+      font-size: 25px;
+    }
+
+    &__btns {
+      height: 80px;
+      &__add_lesson, &__save {
+        font-size: 30px;
+        height: 100%;
+      }
+    }
+
+    &__course_info {
+      &__block {
+        &__details {
+          &__available {
+            span {
+              font-size: 20px;
+            }
+          }
+          .heading {
+            font-size: 30px;
+          }
+          &__lh_count {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .create_course__content {
+    padding: 0 10%;
+    margin-bottom: 190px;
+
+    &__input {
+      font-size: 30px;
+    }
+
+    &__btns {
+      bottom: 100px;
+      height: 80px;
+      &__add_lesson, &__save {
+        font-size: 30px;
+        height: 100%;
+      }
+    }
+
+    &__course_info {
+      &__block {
+        &__details {
+          &__available {
+            span {
+              font-size: 30px;
+            }
+          }
+          .heading {
+            font-size: 40px;
+          }
+          &__lh_count {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+}

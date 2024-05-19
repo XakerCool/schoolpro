@@ -1,0 +1,146 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .edit_test__content {
+    padding: 0 10%;
+
+    &__btns {
+      justify-content: space-around;
+      height: 60px;
+      &__save_test, &__save_question {
+        height: 100%;
+        span {
+          font-size: 30px;
+        }
+      }
+    }
+
+    &__current_question {
+      &__question {
+        &__topic {
+          font-size: 25px;
+        }
+        &__text {
+          font-size: 25px;
+          textarea {
+            max-height: 200px;
+          }
+        }
+      }
+
+      &__answers {
+        &__list {
+          &__answer {
+            &__letter {
+              font-size: 30px;
+            }
+            &__text {
+              font-size: 30px;
+            }
+          }
+        }
+      }
+    }
+
+    &__outline {
+      &__heading {
+        &__icon {
+          width: 90px;
+          height: 90px;
+        }
+        &__test_name {
+          font-size: 25px;
+        }
+      }
+      &__questions {
+        &__question, &__add_question_btn {
+          padding: 10px 25px;
+          span {
+            font-size: 25px;
+          }
+        }
+
+        &__add_question_btn {
+          padding: 10px 15px;
+          font-size: 40px;
+        }
+
+        &__question.selected {
+          padding: 15px 35px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .edit_test__content {
+    padding: 0 10%;
+
+    &__btns {
+      bottom: 100px;
+      justify-content: space-around;
+      height: 80px;
+      &__save_test, &__save_question {
+        height: 100%;
+        span {
+          font-size: 35px;
+        }
+      }
+    }
+
+    &__outline {
+      &__heading {
+        &__icon {
+          width: 150px;
+          height: 150px;
+        }
+        &__test_name {
+          font-size: 35px;
+        }
+      }
+      &__questions {
+        &__question, &__add_question_btn {
+          padding: 15px 35px;
+          span {
+            font-size: 40px;
+          }
+        }
+
+        &__add_question_btn {
+          padding: 10px 15px;
+          font-size: 60px;
+        }
+
+        &__question.selected {
+          padding: 15px 35px;
+        }
+      }
+    }
+
+    &__current_question {
+      &__question {
+        &__topic {
+          font-size: 35px;
+        }
+        &__text {
+          font-size: 35px;
+          textarea {
+            max-height: 300px;
+          }
+        }
+      }
+
+      &__answers {
+        &__list {
+          &__answer {
+            &__letter {
+              font-size: 30px;
+            }
+            &__text {
+              font-size: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

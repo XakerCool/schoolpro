@@ -1,0 +1,43 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .create_course__content__lessons__lesson {
+    &__short {
+      span, input {
+        font-size: 25px;
+      }
+    }
+
+    &__info {
+      &__lesson_link, &__hw, &__summary_link {
+        span, input {
+          font-size: 25px;
+        }
+      }
+    }
+
+    ion-icon {
+      font-size: 25px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .create_course__content__lessons__lesson {
+    &__short {
+      span, input {
+        font-size: 35px;
+      }
+    }
+
+    &__info {
+      &__lesson_link, &__hw, &__summary_link {
+        span, input {
+          font-size: 35px;
+        }
+      }
+    }
+
+    ion-icon {
+      font-size: 35px;
+    }
+  }
+}
