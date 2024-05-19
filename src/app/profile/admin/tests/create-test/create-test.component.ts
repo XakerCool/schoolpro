@@ -3,7 +3,7 @@ import {Component, OnInit} from "@angular/core";
 @Component({
   selector: 'app-admin-page-create-test',
   templateUrl: './create-test.component.html',
-  styleUrls: ['./create-test.component.scss']
+  styleUrls: ['./create-test.component.scss', './create-test-adaptive.component.scss']
 })
 export class CreateTestComponent implements OnInit{
   test = {

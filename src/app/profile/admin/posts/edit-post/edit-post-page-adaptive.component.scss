@@ -1,0 +1,42 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .edit_post__content {
+    padding: 0 10%;
+
+    &__btns {
+      justify-content: space-around;
+    }
+
+    &__text {
+      textarea {
+        max-height: 400px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .edit_post__content {
+    padding: 0 10%;
+
+    &__btns {
+      bottom: 100px;
+      height: 80px;
+      &__save_btn, &__delete_btn {
+        height: 100%;
+        padding: 0 5px;
+        span {
+          font-size: 30px;
+        }
+      }
+    }
+
+    &__text {
+      input, textarea {
+        font-size: 30px;
+      }
+      textarea {
+        max-height: 500px;
+      }
+    }
+  }
+}

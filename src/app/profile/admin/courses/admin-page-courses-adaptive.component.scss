@@ -1,0 +1,85 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .admin_page_courses__content {
+    padding: 0 10%;
+    &__heading {
+      span {
+        font-size: 30px;
+      }
+    }
+    &__create_course {
+      margin: 0 auto;
+      max-width: 60%;
+      height: 80px;
+      bottom: 100px;
+      span {
+        font-size: 30px;
+      }
+    }
+    &__existing_courses {
+      &__list {
+        &__item {
+          &__course_title {
+            &__icon {
+            }
+            &__name {
+              font-size: 40px;
+            }
+          }
+
+          &__price {
+            font-size: 50px;
+          }
+
+          &__change_btn {
+            span {
+              font-size: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .admin_page_courses__content {
+    padding: 0 10%;
+    &__heading {
+      span {
+        font-size: 30px;
+      }
+    }
+    &__create_course {
+      margin: 0 auto;
+      max-width: 60%;
+      height: 80px;
+      bottom: 100px;
+      span {
+        font-size: 30px;
+      }
+    }
+    &__existing_courses {
+      &__list {
+        &__item {
+          &__course_title {
+            &__icon {
+            }
+            &__name {
+              font-size: 40px;
+            }
+          }
+
+          &__price {
+            font-size: 50px;
+          }
+
+          &__change_btn {
+            span {
+              font-size: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

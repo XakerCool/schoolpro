@@ -4,7 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 @Component({
   selector: 'app-admin-page-edit-test',
   templateUrl: './edit-test.component.html',
-  styleUrls: ['./edit-test.component.scss']
+  styleUrls: ['./edit-test.component.scss', './edit-test-adaptive.component.scss']
 })
 export class EditTestComponent implements OnInit {
   alphabet = "abcdefghijklmnopqrstuvwxyz"

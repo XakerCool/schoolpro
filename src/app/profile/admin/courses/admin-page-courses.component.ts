@@ -4,7 +4,7 @@ import {HttpClient} from "@angular/common/http";
 @Component({
   selector: 'app-admin-page-courses',
   templateUrl: './admin-page-courses.component.html',
-  styleUrls: ['./admin-page-courses.component.scss']
+  styleUrls: ['./admin-page-courses.component.scss', './admin-page-courses-adaptive.component.scss']
 })
 export class AdminPageCoursesComponent implements OnInit{
 
@@ -130,7 +130,7 @@ export class AdminPageCoursesComponent implements OnInit{
      this.secondsOnPage++
    }, 1000)
     this.http.get("http://5.35.80.178:8000/courses/courses/").subscribe((res: any) => {
-      this.existingCourses = res
+      // this.existingCourses = res
     })
  }
 

@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http";
 @Component({
   selector: 'app-admin-page-posts',
   templateUrl: './admin-page-posts.component.html',
-  styleUrls: ['./admin-page-posts.component.scss']
+  styleUrls: ['./admin-page-posts.component.scss', './admin-page-posts-adaptive.component.scss']
 })
 export class AdminPagePostsComponent implements OnInit{
   existingPosts = [
