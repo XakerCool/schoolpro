@@ -1,4 +1,5 @@
 import {Component, OnInit} from "@angular/core"
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: "app-first-entry",
@@ -7,7 +8,7 @@ import {Component, OnInit} from "@angular/core"
 })
 export class FirstEntryPage implements OnInit{
   secondsOnPage = 0;
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.changePage()
@@ -52,5 +53,19 @@ export class FirstEntryPage implements OnInit{
         pages[index]?.classList.remove("hidden")
       })
     })
+  }
+
+  async ionViewWillLeave() {
+    this.http.post("http://5.35.80.178:8000/log_time/",
+      {
+        "action": "Страница первого входа",
+        "duration": this.secondsOnPage
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
   }
 }

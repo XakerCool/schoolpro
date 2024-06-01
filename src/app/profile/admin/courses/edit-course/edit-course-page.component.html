@@ -64,7 +64,12 @@
         </li>
       </ol>
     </div>
-  <div class="edit_course__content__save_btn" (click)="saveChanges()">
-    <span>Сохранить</span>
+  <div class="edit_course__content__btns">
+    <div class="edit_course__content__btns__delete_btn" (click)="deleteCourse()">
+      Удалить
+    </div>
+    <div class="edit_course__content__btns__save_btn" (click)="saveChanges()">
+      <span>Сохранить</span>
+    </div>
   </div>
 </ion-content>

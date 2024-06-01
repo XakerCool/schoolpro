@@ -11,7 +11,7 @@ export class AdminPageCoursesComponent implements OnInit{
   existingCourses = [
     {
       id: 1,
-      courseName: "История РК",
+      title: "История РК",
       coursePrice: 12990,
       lessonsCount: 40,
       hours: 60,
@@ -48,7 +48,7 @@ export class AdminPageCoursesComponent implements OnInit{
     },
     {
       id: 2,
-      courseName: "Математика",
+      title: "Математика",
       coursePrice: 12990,
       lessonsCount: 42,
       hours: 65,
@@ -85,7 +85,7 @@ export class AdminPageCoursesComponent implements OnInit{
     },
     {
       id: 3,
-      courseName: "Физика",
+      title: "Физика",
       coursePrice: 12990,
       lessonsCount: 52,
       hours: 78,
@@ -130,7 +130,8 @@ export class AdminPageCoursesComponent implements OnInit{
      this.secondsOnPage++
    }, 1000)
     this.http.get("http://5.35.80.178:8000/courses/courses/").subscribe((res: any) => {
-      // this.existingCourses = res
+      this.existingCourses = res
+      console.log(this.existingCourses)
     })
  }
 

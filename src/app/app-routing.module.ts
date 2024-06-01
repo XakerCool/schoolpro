@@ -83,7 +83,16 @@ const routes: Routes = [
           },
           {
             path: 'buy-courses',
-            loadChildren: () => import('./profile/buy-courses/buy-courses.module').then(m => m.BuyCoursesModule)
+            children: [
+              {
+                path: "",
+                loadChildren: () => import('./profile/buy-courses/buy-courses.module').then(m => m.BuyCoursesModule)
+              },
+              {
+                path: "tarifs",
+                loadChildren: () => import('./profile/buy-courses/tarifs/tarifs-page.module').then(m => m.TarifsPageModule)
+              }
+            ]
           },
           {
             path: 'edit-profile',

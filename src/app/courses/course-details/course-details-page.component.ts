@@ -24,7 +24,10 @@ export class CourseDetailsPageComponent implements OnInit{
     });
 
     this.http.get("http://5.35.80.178:8000/courses/courses/" + this.courseId).subscribe((res: any) => {
-      this.selectedCourse = res
+      this.selectedCourse = res;
+    })
+    this.http.get("http://5.35.80.178:8000/courses/"+this.selectedCourse.id+"/lessons/").subscribe((res: any) => {
+      this.selectedCourse.lessons = res;
     })
 
     this.showLessonInfo()
@@ -41,5 +44,19 @@ export class CourseDetailsPageComponent implements OnInit{
         })
       })
     })
+  }
+
+  async ionViewWillLeave() {
+    this.http.post("http://5.35.80.178:8000/log_time/",
+      {
+        "action": "Страница детали курса",
+        "duration": this.secondsOnPage
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
   }
 }

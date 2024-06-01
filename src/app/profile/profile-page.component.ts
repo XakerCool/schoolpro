@@ -37,4 +37,18 @@ export class ProfilePageComponent implements OnInit {
       console.error('Error:', error);
     });
   }
+
+  async ionViewWillLeave() {
+    this.http.post("http://5.35.80.178:8000/log_time/",
+      {
+        "action": "Страница профиля",
+        "duration": this.secondsOnPage
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
+  }
 }

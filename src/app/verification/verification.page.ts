@@ -1,4 +1,5 @@
 import {Component, input, OnInit} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-verification',
@@ -7,7 +8,7 @@ import {Component, input, OnInit} from "@angular/core";
 })
 export class VerificationPage implements OnInit {
   secondsOnPage = 0
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
@@ -64,9 +65,24 @@ export class VerificationPage implements OnInit {
       })
     })
   }
-  login(verificationCode: string | undefined) {
+
+  parseVerificationCode() {
+    const verCodeElements = Array.from(document.getElementsByClassName("code_input"));
+    let verificationCode = "";
+    verCodeElements.forEach((item) => {
+      const elem = item as HTMLInputElement;
+      verificationCode += elem.value;
+    })
+    console.log(verificationCode)
+    return verificationCode;
+  }
+
+  login() {
+    const verificationCode = this.parseVerificationCode();
     const loginBtn = document.getElementById("login_btn")
     const text = document.getElementById("verification_page__text")
+
+    const userId = 1;
 
     loginBtn?.addEventListener("click", () => {
       const inputs = Array.from(document.getElementsByClassName("code_input"))
@@ -92,8 +108,37 @@ export class VerificationPage implements OnInit {
           text.append(document.createElement("br"))
           text.append("мы отправили вам")
           text.style.color = "black"
+        } else {
+          this.http.post("http://5.35.80.178:8000/verify-account/",
+            {
+              "code": verificationCode,
+              "user_id": userId
+            },
+            {
+              headers: {
+                "Content-Type": "application/json"
+              }
+            }
+          ).subscribe((res: any) => {
+            console.log(res)
+          })
         }
       }
     })
+  }
+
+  async ionViewWillLeave() {
+    this.http.post("http://5.35.80.178:8000/log_time/",
+      {
+        "action": "Страница верификации" +
+          "",
+        "duration": this.secondsOnPage
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
   }
 }

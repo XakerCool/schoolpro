@@ -68,4 +68,18 @@ export class EditProfilePageComponent implements OnInit{
     this.user.image.size = file.size;
     this.user.avatar = file;
   }
+
+  async ionViewWillLeave() {
+    this.http.post("http://5.35.80.178:8000/log_time/",
+      {
+        "action": "Страница изменения профиля",
+        "duration": this.secondsOnPage
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
+  }
 }

@@ -1,4 +1,5 @@
 import {Component, OnInit} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-test-page',
@@ -234,10 +235,19 @@ export class TestPageComponent implements OnInit{
   selectedQuestion = this.quiz.questions[0]
   secondsOnPage = 0
 
+  constructor(private http: HttpClient) {
+  }
+
   ngOnInit() {
+    let courseId = 0;
     setInterval(() => {
       this.secondsOnPage++
     }, 1000)
+
+    this.http.get("http://5.35.80.178:8000/"+courseId+"/tests").subscribe((res: any) => {
+      this.quiz = res;
+    })
+
     // @ts-ignore
     window.addEventListener("load", () => {
       // @ts-ignore
@@ -283,5 +293,43 @@ export class TestPageComponent implements OnInit{
     this.selectedQuestion.answers.forEach(answer => answer.isSelected = false);
     currentAnswers[answerIndex].classList.add("selected"); // Highlight the selected answer
     this.selectedQuestion.answers[answerIndex].isSelected = true; // Update the selected answer in the data model
+  }
+
+  answer() {
+    let selectedAnswer = null;
+
+    this.selectedQuestion.answers.forEach(item => {
+      if (item.isAnswer) {
+        selectedAnswer = item;
+      }
+    })
+
+    this.http.post("http://5.35.80.178:8000/check-test/",
+      {
+        "test_id": this.selectedQuestion.id,
+        "answer": selectedAnswer
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    ).subscribe((res: any) => {
+      console.log(res);
+    })
+  }
+
+  async ionViewWillLeave() {
+    this.http.post("http://5.35.80.178:8000/log_time/",
+      {
+        "action": "Страица теста",
+        "duration": this.secondsOnPage
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
   }
 }
