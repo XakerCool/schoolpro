@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-tests-page',
@@ -34,7 +35,7 @@ export class TestsPageComponent implements OnInit{
     }
   }
   secondsOnPage = 0
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
@@ -56,5 +57,19 @@ export class TestsPageComponent implements OnInit{
       }
       this.quiz.time.seconds--
     }, 1000)
+  }
+
+  async ionViewWillLeave() {
+    this.http.post("http://5.35.80.178:8000/log_time/",
+      {
+        "action": "Страница тестов",
+        "duration": this.secondsOnPage
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
   }
 }

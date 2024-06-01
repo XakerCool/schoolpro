@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {validateInputData} from "../validator";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-edit-course-page',
@@ -149,7 +150,7 @@ export class EditCoursePageComponent implements OnInit{
   selectedCourse: any
   secondsOnPage = 0
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
     setInterval(() => {
@@ -165,6 +166,13 @@ export class EditCoursePageComponent implements OnInit{
       this.course.lessonsAvailable = 0;
       this.course.lessons = this.selectedCourse.lessons;
       this.course.img.name = this.selectedCourse.iconPath.substring("./assets/".length);
+
+      this.http.get("http://5.35.80.178:8000/courses/courses/"+this.courseId+"/").subscribe((res: any) => {
+        this.selectedCourse = res
+      })
+      this.http.get("http://5.35.80.178:8000/courses/courses/"+this.courseId+"/lessons/").subscribe((res: any) => {
+        this.selectedCourse.lessons = res
+      })
       setTimeout(() => {
         this.attachLessonsInfo();
       }, 10)
@@ -297,6 +305,26 @@ export class EditCoursePageComponent implements OnInit{
     })
 
     console.log(this.course)
+    this.http.put("http://5.35.80.178:8000/courses/courses/"+this.courseId+"/", {
+      "title": this.course.name,
+      "description": this.course.lessonsCount + " уроков " + this.course.hoursCount + " часов " + this.course.lessonsAvailable + " уроков доступно "
+    })
+    this.course.lessons.forEach((lesson: any) => {
+      this.http.post("http://5.35.80.178:8000/courses/lessons/", {
+        "title": lesson.name,
+        "homework_url": lesson.hw,
+        "video_url": lesson.lessonLink,
+        "course": this.courseId
+      })
+    })
+  }
+
+  deleteCourse() {
+    if(confirm("Вы действительно хотите удалить курс?")) {
+      this.http.delete("http://5.35.80.178:8000/courses/courses/"+this.courseId+"/").subscribe((res: any) => {
+        alert(res)
+      })
+    }
   }
 
   getImageFileInfo(imgElement: any): Promise<File> {

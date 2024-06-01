@@ -47,7 +47,7 @@ export class CreateCoursePageComponent implements OnInit {
     this.http.post("http://5.35.80.178:8000/courses/courses/",
       {
         "title": this.course.title,
-
+        "description": this.course.lessonsCount + " уроков " + this.course.hoursCount + " часов " + this.course.lessonsAvailable + " доступно уроков "
       })
 
     console.log(this.course)

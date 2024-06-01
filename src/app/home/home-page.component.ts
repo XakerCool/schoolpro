@@ -60,4 +60,17 @@ export class HomePageComponent implements OnInit{
     });
   }
 
+  async ionViewWillLeave() {
+    this.http.post("http://5.35.80.178:8000/log_time/",
+      {
+        "action": "Главная страница (страница новостей)",
+        "duration": this.secondsOnPage
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
+  }
 }

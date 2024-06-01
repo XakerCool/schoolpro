@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-admin-page-edit-test',
@@ -733,7 +734,7 @@ export class EditTestComponent implements OnInit {
   testId = 0
   currentQuestionId = 0
   secondsOnPage = 0
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
   }
 
   ngOnInit() {
@@ -858,5 +859,19 @@ export class EditTestComponent implements OnInit {
       this.editingTest.img.name = file.name;
       this.editingTest.img.size = file.size;
     }
+  }
+
+  async ionViewWillLeave() {
+    this.http.post("http://5.35.80.178:8000/log_time/",
+      {
+        "action": "Админская страница редактирования теста",
+        "duration": this.secondsOnPage
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
   }
 }

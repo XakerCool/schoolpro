@@ -1,4 +1,5 @@
 import {Component, OnInit} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-admin-page-tests',
@@ -34,9 +35,26 @@ export class AdminPageTestsComponent implements OnInit{
     }
   ]
 
+  constructor(private http: HttpClient) {
+  }
+
   ngOnInit() {
     setInterval(() => {
       this.secondsOnPage++
     }, 1000)
+  }
+
+  async ionViewWillLeave() {
+    this.http.post("http://5.35.80.178:8000/log_time/",
+      {
+        "action": "Страница админа с тестами",
+        "duration": this.secondsOnPage
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
   }
 }
