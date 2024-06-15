@@ -1,0 +1,65 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .university_details_page__content {
+    &__main_info {
+      width: 80%;
+      &__section {
+        width: 100%;
+
+        &__heading {
+          width: 100%;
+          span {
+            font-size: 25px;
+          }
+        }
+
+        &__text {
+          font-size: 25px;
+        }
+
+        &__info {
+          h3 {
+            font-size: 30px;
+          }
+          &__select {
+            &__option {
+              font-size: 25px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .university_details_page__content {
+    &__main_info {
+      width: 80%;
+      &__section {
+        width: 100%;
+
+        &__heading {
+          width: 100%;
+          span {
+            font-size: 30px;
+          }
+        }
+
+        &__text {
+          font-size: 30px;
+        }
+
+        &__info {
+          h3 {
+            font-size: 35px;
+          }
+          &__select {
+            &__option {
+              font-size: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

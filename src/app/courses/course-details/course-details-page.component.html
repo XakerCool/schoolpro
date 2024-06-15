@@ -9,14 +9,14 @@
     </div>
     <div class="course_details__content__course_info">
       <div class="course_details__content__course_info__block">
-        <div class="course_details__content__course_info__block__icon" [style.background-color]="selectedCourse.backgroundColor">
-          <img src="{{selectedCourse.iconPath}}" alt="">
+        <div class="course_details__content__course_info__block__icon">
+<!--          <img src="{{selectedCourse.iconPath}}" alt="">-->
         </div>
         <div class="course_details__content__course_info__block__text">
-          <span class="title">{{selectedCourse.courseName}}</span>
+          <span class="title">{{selectedCourse.title}}</span>
           <span class="rating">
             <ion-icon name="star"></ion-icon>
-            {{selectedCourse.rating}}
+<!--            {{selectedCourse.rating}}-->
           </span>
         </div>
       </div>
@@ -24,31 +24,31 @@
         <div class="course_details__content__course_info__block__details">
           <span class="heading">Детали курса</span>
           <p class="course_details__content__course_info__block__details__lh_count">
-            <span>{{selectedCourse.lessonsCount}} Уроков</span>
+<!--            <span>{{selectedCourse.lessonsCount}} Уроков</span>-->
             <span>&#9679;</span>
-            <span>{{selectedCourse.hours}} Часов</span>
+<!--            <span>{{selectedCourse.hours}} Часов</span>-->
           </p>
           <div class="course_details__content__course_info__block__details__available">
-            <span>3 Доступно</span>
+            <span>{{selectedCourse.available}} Доступно</span>
           </div>
         </div>
       </div>
     </div>
     <ol class="course_details__content__lessons">
-      <li class="course_details__content__lessons__lesson" *ngFor="let lesson of selectedCourse.lessons; let i = index">
+      <li class="course_details__content__lessons__lesson" *ngFor="let lesson of selectedCourse.lessons; let i = index" (click)="showLessonInfo()">
         <div class="course_details__content__lessons__lesson__short">
-          <span>{{ i+1 }}: {{ lesson.name }}</span>
+          <span>{{ i+1 }}: {{ lesson.title }}</span>
           <ion-icon name="play-circle" class="show_btn"></ion-icon>
           <div class="arrow_down hidden"></div>
         </div>
         <div class="course_details__content__lessons__lesson__info hidden">
           <div class="course_details__content__lessons__lesson__info__lesson_link">
             <span>Ссылка на урок</span>
-            <a href="">{{lesson.lessonLink}}</a>
+            <a href="">{{lesson.video_url}}</a>
           </div>
           <div class="course_details__content__lessons__lesson__info__hw">
             <span>Д/з</span>
-            <a href="">{{lesson.hw}}</a>
+            <a href="">{{lesson.homework_url}}</a>
           </div>
         </div>
       </li>

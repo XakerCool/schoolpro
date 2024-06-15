@@ -130,8 +130,7 @@ export class AdminPageCoursesComponent implements OnInit{
      this.secondsOnPage++
    }, 1000)
     this.http.get("http://5.35.80.178:8000/courses/courses/").subscribe((res: any) => {
-      this.existingCourses = res
-      console.log(this.existingCourses)
+      // this.existingCourses = res
     })
  }
 

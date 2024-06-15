@@ -10,7 +10,20 @@ import {HttpClient} from "@angular/common/http";
 export class CourseDetailsPageComponent implements OnInit{
 
   courseId: any
-  selectedCourse: any
+  selectedCourse = {
+    id : 0,
+    title: "",
+    content: "",
+    available: 0,
+    lessons: [
+      {
+        title: "",
+        video_url: "",
+        homework_url: "",
+        is_trial: false,
+      }
+    ]
+  }
   secondsOnPage = 0
 
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
@@ -23,14 +36,18 @@ export class CourseDetailsPageComponent implements OnInit{
       this.courseId = params['id'];
     });
 
-    this.http.get("http://5.35.80.178:8000/courses/courses/" + this.courseId).subscribe((res: any) => {
+    this.http.get("http://5.35.80.178:8000/courses/courses/" + this.courseId+"/").subscribe((res: any) => {
       this.selectedCourse = res;
+      this.http.get("http://5.35.80.178:8000/courses/courses/"+this.selectedCourse.id+"/lessons/").subscribe((res: any) => {
+        this.selectedCourse.lessons = res;
+        this.selectedCourse.available = 0;
+        this.selectedCourse.lessons.forEach(lesson => {
+          if (lesson.is_trial)
+            this.selectedCourse.available++;
+        })
+        this.showLessonInfo()
+      })
     })
-    this.http.get("http://5.35.80.178:8000/courses/"+this.selectedCourse.id+"/lessons/").subscribe((res: any) => {
-      this.selectedCourse.lessons = res;
-    })
-
-    this.showLessonInfo()
   }
 
   showLessonInfo() {

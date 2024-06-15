@@ -34,7 +34,7 @@ const routes: Routes = [
             loadChildren: () => import('./home/home-page.module').then(m => m.HomePageModule)
           },
           {
-            path: 'post',
+            path: 'post/:id',
             loadChildren: () => import('./home/post-info/post-info-page.module').then(m => m.PostInfoPageModule)
           }
         ],
@@ -68,7 +68,16 @@ const routes: Routes = [
       },
       {
         path: 'universities',
-        loadChildren: () => import('./universities/universities-page.module').then(m => m.UniversitiesPageModule)
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('./universities/universities-page.module').then(m => m.UniversitiesPageModule)
+          },
+          {
+            path: ':id',
+            loadChildren: () => import('./universities/university-details/university-details-page.module').then(m => m.UniversityDetailsPageModule)
+          }
+        ],
       },
       {
         path: 'user',

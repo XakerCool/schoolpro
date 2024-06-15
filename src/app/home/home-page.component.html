@@ -10,13 +10,13 @@
       </div>
     </div>
     <div class="home_page__content__categories">
-      <div class="home_page__content__categories__category selected home_page_category" data-category="all" (click)="showAllPosts()">
+      <div class="home_page__content__categories__category selected home_page_category" data-category="all" (click)="showAllPosts()" id="cat_all">
         Все
       </div>
-      <div class="home_page__content__categories__category" data-category="interesting" (click)="showInterestingPosts()">
+      <div class="home_page__content__categories__category" data-category="interesting" (click)="showInterestingPosts()" id="cat_interesting">
         Интересное
       </div>
-      <div class="home_page__content__categories__category" data-category="saved" (click)="showSavedPosts()">
+      <div class="home_page__content__categories__category" data-category="saved" (click)="showSavedPosts()" id="cat_saved">
         Избранное
       </div>
     </div>
@@ -26,16 +26,16 @@
           <img src="./assets/card-background.png" alt="">
         </div>
         <div class="home_page__content__cards__card__text">
-          <p>{{post.name}}</p>
+          <p>{{post.title}}</p>
         </div>
-        <a href="home/post" class="home_page__content__cards__card__more_btn" data-id="{{post.id}}">
+        <a href="home/post/{{ post.id }}" class="home_page__content__cards__card__more_btn" data-id="{{post.id}}">
           Подробнее
         </a>
-        <div class="home_page__content__cards__card__save_btn" (click)="save(i)">
+        <div class="home_page__content__cards__card__save_btn" (click)="save($event, post.id)">
           <ion-icon name="bookmark-outline" class="home_page__content__cards__card__save_btn__icon"></ion-icon>
         </div>
         <div class="home_page__content__cards__card__img">
-          <img src="./assets/{{post.img}}" alt="">
+          <img src="{{post.image}}" alt="">
         </div>
       </div>
     </div>

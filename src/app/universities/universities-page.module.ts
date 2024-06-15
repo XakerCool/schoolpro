@@ -4,13 +4,13 @@ import { UniversitiesPageComponent } from './universities-page.component';
 
 import { IonicModule } from '@ionic/angular';
 import {HeaderModule} from "../header/header.module";
-import {NgForOf, NgStyle} from "@angular/common";
+import {NgForOf, NgIf, NgStyle} from "@angular/common";
 
 @NgModule({
-  imports: [IonicModule, RouterModule.forChild([{
-    path: '',
-    component: UniversitiesPageComponent
-  }]), HeaderModule, NgForOf, NgStyle],
+    imports: [IonicModule, RouterModule.forChild([{
+        path: '',
+        component: UniversitiesPageComponent
+    }]), HeaderModule, NgForOf, NgStyle, NgIf],
   declarations: [UniversitiesPageComponent],
   exports: [UniversitiesPageComponent],
 })
