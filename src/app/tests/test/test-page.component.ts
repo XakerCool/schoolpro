@@ -304,7 +304,7 @@ export class TestPageComponent implements OnInit{
       }
     })
 
-    this.http.post("http://5.35.80.178:8000/check-test/",
+    this.http.post("tut: http://5.35.80.178:8000/courses/check-test/",
       {
         "test_id": this.selectedQuestion.id,
         "answer": selectedAnswer

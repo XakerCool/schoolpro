@@ -131,6 +131,10 @@
           position: absolute;
           right: 10px;
           bottom: 10px;
+          padding: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           &__icon {
             font-size: 35px;
@@ -148,4 +152,9 @@
   background-color: #FE082D;
   color: #fff;
   box-shadow: 2px 0px 7px 0px rgba(0,0,0,0.3);
+}
+.saved {
+  border-radius: 25px;
+  background-color: #FE082D;
+  color: #000000;
 }

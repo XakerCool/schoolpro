@@ -11,10 +11,23 @@ import { TabsComponent } from "./tabs/tabs.component";
 
 import { HttpClientModule } from "@angular/common/http";
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.service';
+
 @NgModule({
   declarations: [AppComponent, TabsComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    {
+      provide: RouteReuseStrategy,
+      useClass: IonicRouteStrategy
+    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptor,
+    //   multi: true
+    // }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

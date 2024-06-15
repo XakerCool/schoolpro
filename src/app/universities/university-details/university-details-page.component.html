@@ -1,0 +1,32 @@
+<header-component></header-component>
+<ion-content>
+  <div class="university_details_page__content">
+    <div class="university_details_page__content__main_info">
+      <section class="university_details_page__content__main_info__section">
+        <div class="university_details_page__content__main_info__section__heading">
+          <span>Основная информация</span>
+        </div>
+        <div class="university_details_page__content__main_info__section__text">
+          <p><span>Название:</span>{{ university.name }}</p>
+          <p><span>Регион:</span>{{ university.region }}</p>
+          <p><span>Тип ВУЗа:</span>{{ university.type }}</p>
+          <p><span>Адрес:</span>{{ university.address }}</p>
+          <p><span>Телефон:</span>{{ university.phone }}</p>
+        </div>
+      </section>
+      <section class="university_details_page__content__main_info__section">
+        <div class="university_details_page__content__main_info__section__heading">
+          <span>Образовательные программы</span>
+        </div>
+        <div class="university_details_page__content__main_info__section__info" *ngFor="let edProg of educationalPrograms">
+          <h3>{{ edProg.name }}</h3>
+          <div class="university_details_page__content__main_info__section__info__select">
+            <div *ngFor="let prog of edProg.programs" class="university_details_page__content__main_info__section__info__select__option">
+              <a href="{{prog.url}}">{{prog.name}}</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</ion-content>

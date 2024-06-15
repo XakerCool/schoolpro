@@ -2,11 +2,18 @@
 <ion-content class="universities_page">
   <div class="universities_page__content">
     <div class="universities_page__content__heading title">
-      <span>ВУЗ-ы</span>
+      <span>Университеты</span>
       <img src="./assets/School.png" alt="">
     </div>
-    <div class="universities_page__content__text">
-      <span>COMING SOON</span>
+    <div class="universities_page__content__search_bar">
+      <input type="text" name="university_name" id="university_name" placeholder="Найти университет" (input)="findUniversities($event)">
+    </div>
+    <div class="universities_page__content__universities_list">
+      <ul class="universities_page__content__universities_list__list">
+        <li class="universities_page__content__universities_list__list__item" *ngFor="let university of currentData">
+          <a href="universities/{{university.ID}}">{{ university.name }}</a>
+        </li>
+      </ul>
     </div>
   </div>
 </ion-content>

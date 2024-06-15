@@ -58,6 +58,9 @@ export class RegisterPage implements OnInit{
         }
       }
     ).subscribe((res: any) => {
+      if (res.status != 200) {
+        this.router.navigate(['/register/'])
+      }
       if (res.message.toLowerCase() == "Login successful".toLowerCase()) {
         this.router.navigate(['/home/']);
       }
@@ -83,7 +86,9 @@ export class RegisterPage implements OnInit{
         }
       }
     ).subscribe((res: any) => {
-      if (res.message.toLowerCase() == "User created successfully. Please verify your account.".toLowerCase()) {
+      if (res.status != 200) {
+        this.router.navigate(['/register/'])
+      } else if (res.message.toLowerCase() == "User created successfully. Please verify your account.".toLowerCase()) {
         this.router.navigate(['/verification/']);
       }
     })

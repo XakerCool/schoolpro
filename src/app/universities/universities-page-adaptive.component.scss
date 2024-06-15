@@ -1,0 +1,41 @@
+@media (min-width: 768px), (min-width: 820px) {
+  .universities_page__content {
+    &__search_bar {
+      width: 80%;
+      input {
+        font-size: 25px;
+      }
+    }
+
+    &__universities_list {
+      width: 80%;
+
+      &__list {
+        &__item {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .universities_page__content {
+    &__search_bar {
+      width: 80%;
+      input {
+        font-size: 30px;
+      }
+    }
+
+    &__universities_list {
+      width: 80%;
+
+      &__list {
+        &__item {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
