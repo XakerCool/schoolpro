@@ -18,17 +18,4 @@ export class BuyCoursesComponent implements OnInit{
     }, 1000)
   }
 
-  async ionViewWillLeave() {
-    this.http.post("http://5.35.80.178:8000/log_time/",
-      {
-        "action": "Вводная страница покупки курсов",
-        "duration": this.secondsOnPage
-      },
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
-  }
 }

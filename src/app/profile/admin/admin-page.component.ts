@@ -18,17 +18,4 @@ export class AdminPageComponent implements OnInit{
     }, 1000)
   }
 
-  async ionViewWillLeave() {
-    this.http.post("http://5.35.80.178:8000/log_time/",
-      {
-        "action": "Главная страница админа",
-        "duration": this.secondsOnPage
-      },
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
-  }
 }

@@ -31,10 +31,10 @@
             <span>{{quiz.name}}</span>
           </div>
         </div>
-        <a href="/tests/test" class="tests_page__content__quiz__quiz__attempt_btn">
+        <a href="/tests/test/{{quiz.ID}}" class="tests_page__content__quiz__quiz__attempt_btn">
           <span>{{quiz.questionsCount}} вопросов</span>
           <span>-</span>
-          <span>{{quiz.time.hours}}:{{quiz.time.minutes}}:{{quiz.time.seconds}}</span>
+          <span>До: {{quiz.time}}</span>
         </a>
       </div>
     </div>

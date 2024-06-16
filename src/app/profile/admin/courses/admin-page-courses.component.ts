@@ -129,7 +129,7 @@ export class AdminPageCoursesComponent implements OnInit{
    setInterval(() => {
      this.secondsOnPage++
    }, 1000)
-    this.http.get("http://5.35.80.178:8000/courses/courses/").subscribe((res: any) => {
+    this.http.get("/api/courses/courses/").subscribe((res: any) => {
       // this.existingCourses = res
     })
  }

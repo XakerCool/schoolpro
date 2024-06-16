@@ -23,7 +23,7 @@ export class ProfilePageComponent implements OnInit {
     setInterval(() => {
       this.secondsOnPage++
     }, 1000)
-    this.http.get('http://5.35.80.178:8000/users/profile/').subscribe(data => {
+    this.http.get('/api/users/profile/').subscribe(data => {
       this.user = data as any;
     }, error => {
       console.error('Error:', error);
@@ -31,24 +31,10 @@ export class ProfilePageComponent implements OnInit {
   }
 
   logout() {
-    this.http.post('http://5.35.80.178:8000/logout/', {}, {}).subscribe(data => {
+    this.http.post('/api/logout/', {}, {}).subscribe(data => {
       console.log(data)
     }, error => {
       console.error('Error:', error);
     });
-  }
-
-  async ionViewWillLeave() {
-    this.http.post("http://5.35.80.178:8000/log_time/",
-      {
-        "action": "Страница профиля",
-        "duration": this.secondsOnPage
-      },
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
   }
 }

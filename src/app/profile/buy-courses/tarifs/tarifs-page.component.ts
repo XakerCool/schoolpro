@@ -21,7 +21,7 @@ export class TarifsPageComponent implements OnInit{
   }
 
   purchaseCourse(courseId: any) {
-    this.http.post("http://5.35.80.178:8000/purchase-course/",
+    this.http.post("/api/purchase-course/",
       {
         "course_id": courseId
       },
@@ -35,17 +35,4 @@ export class TarifsPageComponent implements OnInit{
     })
   }
 
-  async ionViewWillLeave() {
-    this.http.post("http://5.35.80.178:8000/log_time/",
-      {
-        "action": "Страница покупки курсов",
-        "duration": this.secondsOnPage
-      },
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
-  }
 }

@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-test-page',
@@ -12,7 +13,6 @@ export class TestPageComponent implements OnInit{
     name: "История РК",
     iconPath: "./assets/KZ.png",
     questionsCount: 40,
-    backgroundColor: "rgba(8, 106, 254, 1)",
     questions: [
       {
         id: 1,
@@ -234,17 +234,24 @@ export class TestPageComponent implements OnInit{
   }
   selectedQuestion = this.quiz.questions[0]
   secondsOnPage = 0
+  courseId = 0
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    let courseId = 0;
+    this.route.params.subscribe(params => {
+      this.courseId = params['id'];
+    });
     setInterval(() => {
       this.secondsOnPage++
     }, 1000)
 
-    this.http.get("http://5.35.80.178:8000/"+courseId+"/tests").subscribe((res: any) => {
+    setTimeout(() => {
+      this.logTime()
+    }, 20000)
+
+    this.http.get("/api/"+this.courseId+"/tests").subscribe((res: any) => {
       this.quiz = res;
     })
 
@@ -256,6 +263,30 @@ export class TestPageComponent implements OnInit{
       document.getElementById("current_question_topic").innerText = "Тема: " + this.selectedQuestion.topic
       this.selectQuestion();
     })
+  }
+
+  logTime() {
+    const userId = getCookie('user_id');
+    if (!userId) {
+      console.error('User ID not found in cookies');
+      return;
+    }
+
+    this.http.post("/api/log_time/",
+      {
+        "action": `User: ${userId}: Страница викторины`,
+        "duration": this.secondsOnPage
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    ).subscribe((res: any) => {
+      console.log(res);
+    }, (error) => {
+      console.error('Error logging time:', error);
+    });
   }
 
   selectQuestion() {
@@ -304,7 +335,7 @@ export class TestPageComponent implements OnInit{
       }
     })
 
-    this.http.post("tut: http://5.35.80.178:8000/courses/check-test/",
+    this.http.post("/api/courses/check-test/",
       {
         "test_id": this.selectedQuestion.id,
         "answer": selectedAnswer
@@ -312,24 +343,19 @@ export class TestPageComponent implements OnInit{
       {
         headers: {
           "Content-Type": "application/json"
-        }
+        },
       }
     ).subscribe((res: any) => {
       console.log(res);
     })
   }
 
-  async ionViewWillLeave() {
-    this.http.post("http://5.35.80.178:8000/log_time/",
-      {
-        "action": "Страица теста",
-        "duration": this.secondsOnPage
-      },
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
+}
+
+function getCookie(name: string): string | null {
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  if (match) {
+    return match[2];
   }
+  return null;
 }

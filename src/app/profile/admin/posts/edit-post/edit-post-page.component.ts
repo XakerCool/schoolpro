@@ -71,14 +71,14 @@ export class EditPostPageComponent implements OnInit{
       this.postId = params['id'];
       // @ts-ignore
       // this.editingPost = this.existingPosts.find(post => post.id == this.postId)
-      this.http.get("http://5.35.80.178:8000/manage/news/"+this.postId+"/").subscribe((res: any) => {
+      this.http.get("/api/manage/news/"+this.postId+"/").subscribe((res: any) => {
         this.editingPost = res
       })
     });
   }
 
   deletePost() {
-    this.http.delete("http://5.35.80.178:8000/manage/news/"+this.postId+"/").subscribe((res: any) => {
+    this.http.delete("/api/manage/news/"+this.postId+"/").subscribe((res: any) => {
       console.log(res)
     }, error => {
       console.error(error)
@@ -95,7 +95,7 @@ export class EditPostPageComponent implements OnInit{
     this.editingPost.postName = topic;
     this.editingPost.postText = text;
 
-    this.http.put("http://5.35.80.178:8000/manage/news/"+this.postId+"/",
+    this.http.put("/api/manage/news/"+this.postId+"/",
       {
         "title": this.editingPost.postName,
         "description": this.editingPost.postText,

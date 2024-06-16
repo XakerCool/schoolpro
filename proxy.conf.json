@@ -1,7 +1,10 @@
 {
-  "/": {
+  "/api": {
     "target": "http://5.35.80.178:8000",
+    "changeOrigin": true,
     "secure": false,
-    "changeOrigin": true
+    "pathRewrite": {
+      "^/api": ""
+    }
   }
 }

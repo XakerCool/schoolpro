@@ -44,17 +44,4 @@ export class AdminPageTestsComponent implements OnInit{
     }, 1000)
   }
 
-  async ionViewWillLeave() {
-    this.http.post("http://5.35.80.178:8000/log_time/",
-      {
-        "action": "Страница админа с тестами",
-        "duration": this.secondsOnPage
-      },
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
-  }
 }

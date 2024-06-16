@@ -13,6 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [AppComponent, TabsComponent],
@@ -26,7 +27,8 @@ import { AuthInterceptor } from './interceptors/auth.service';
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: AuthInterceptor,
     //   multi: true
-    // }
+    // },
+    CookieService
   ],
   bootstrap: [AppComponent],
 })

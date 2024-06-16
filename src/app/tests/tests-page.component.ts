@@ -25,14 +25,11 @@ export class TestsPageComponent implements OnInit{
     }
   ]
   quiz = {
+    ID: 1,
     name: "История РК",
     iconPath: "./assets/KZ.png",
     questionsCount: 40,
-    time: {
-      hours: 60,
-      minutes: 59,
-      seconds: 59
-    }
+    time: "2024-06-17"
   }
   secondsOnPage = 0
   constructor(private http: HttpClient) {
@@ -43,33 +40,24 @@ export class TestsPageComponent implements OnInit{
       this.secondsOnPage++
     }, 1000)
     this.decreaseTime()
+
+    this.http.get("/api/courses/quiz/").subscribe((data: any) => {
+      this.quiz = data;
+    })
   }
 
   decreaseTime() {
-    setInterval(() => {
-      if (this.quiz.time.seconds < 1) {
-        this.quiz.time.seconds = 60
-        this.quiz.time.minutes--
-      }
-      if (this.quiz.time.minutes < 1) {
-        this.quiz.time.minutes = 59
-        this.quiz.time.hours--
-      }
-      this.quiz.time.seconds--
-    }, 1000)
+    // setInterval(() => {
+    //   if (this.quiz.time.seconds < 1) {
+    //     this.quiz.time.seconds = 60
+    //     this.quiz.time.minutes--
+    //   }
+    //   if (this.quiz.time.minutes < 1) {
+    //     this.quiz.time.minutes = 59
+    //     this.quiz.time.hours--
+    //   }
+    //   this.quiz.time.seconds--
+    // }, 1000)
   }
 
-  async ionViewWillLeave() {
-    this.http.post("http://5.35.80.178:8000/log_time/",
-      {
-        "action": "Страница тестов",
-        "duration": this.secondsOnPage
-      },
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
-  }
 }

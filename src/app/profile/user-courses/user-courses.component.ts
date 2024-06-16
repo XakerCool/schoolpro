@@ -34,24 +34,10 @@ export class UserCoursesPageComponent implements OnInit{
      setInterval(() => {
        this.secondsOnPage++
      }, 1000)
-     this.http.get("http://5.35.80.178:8000/users/profile/courses/").subscribe((res: any) => {
+     this.http.get("/api/users/profile/courses/").subscribe((res: any) => {
        this.userCourses = res;
      }, error => {
        console.error(error)
      })
-   }
-
-   async ionViewWillLeave() {
-     this.http.post("http://5.35.80.178:8000/log_time/",
-       {
-         "action": "Страница курсов пользователя",
-         "duration": this.secondsOnPage
-       },
-       {
-         headers: {
-           "Content-Type": "application/json"
-         }
-       }
-     )
    }
  }
