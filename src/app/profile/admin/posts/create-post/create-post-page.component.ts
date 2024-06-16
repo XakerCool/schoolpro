@@ -38,7 +38,7 @@ export class CreatePostPageComponent implements OnInit{
     this.creatingPost.topic = topic;
     this.creatingPost.text = text;
 
-    this.http.post("http://5.35.80.178:8000/manage/news/",
+    this.http.post("/api/manage/news/",
       {
         "title": this.creatingPost.topic,
         "description": this.creatingPost.text,

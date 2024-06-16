@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {handleFileInput} from "../admin/posts/helper";
 import {HttpClient} from "@angular/common/http";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-dit-profile-page',
@@ -20,15 +21,16 @@ export class EditProfilePageComponent implements OnInit{
     phone: ""
   }
   secondsOnPage = 0
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   ngOnInit() {
     setInterval(() => {
       this.secondsOnPage++
     }, 1000)
-    this.http.get("http://5.35.80.178:8000/users/profile/").subscribe((res: any) => {
+    this.http.get("/api/users/profile/").subscribe((res: any) => {
       this.user = res
+      console.log(res)
     }, error => {
       console.error(error)
     })
@@ -45,16 +47,24 @@ export class EditProfilePageComponent implements OnInit{
     this.user.email = emailEl.value;
     this.user.phone = phoneEl.value;
 
-    this.http.put("http://5.35.80.178:8000/users/profile/update/",
+    this.http.put("/api/users/profile/update/",
       {
-        "first_name": this.user.first_name,
-        "last_name": this.user.last_name,
-        "email": this.user.email,
-        "phone": this.user.phone,
-        "avatar": this.user.avatar
+        "first_name": this.user.first_name || "",
+        "last_name": this.user.last_name || "",
+        "email": this.user.email || "",
+        "phone": this.user.phone || "",
+        // "avatar": this.user.avatar || null
       }
     ).subscribe((res: any) => {
       console.log(res)
+      if (res.status == 200 || res.message == "Профиль успешно обновлен") {
+        alert("Профиль успещно обновлен")
+        this.router.navigate(["/api/users/"])
+      } else if (res.status == 400) {
+        alert("Данные введены некорректно!")
+      } else {
+        alert("Упс, что-то пошло не так")
+      }
     }, error => {
       console.error(error)
     })
@@ -66,20 +76,7 @@ export class EditProfilePageComponent implements OnInit{
     // @ts-ignore
     this.user.image.name = file.name;
     this.user.image.size = file.size;
-    this.user.avatar = file;
+    // this.user.avatar = file;
   }
 
-  async ionViewWillLeave() {
-    this.http.post("http://5.35.80.178:8000/log_time/",
-      {
-        "action": "Страница изменения профиля",
-        "duration": this.secondsOnPage
-      },
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
-  }
 }

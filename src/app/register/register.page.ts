@@ -47,7 +47,7 @@ export class RegisterPage implements OnInit{
     const password = passwordElem.value;
     const credentials = credentialsElem.value;
 
-    this.http.post('http://5.35.80.178:8000/login/',
+    this.http.post('/api/login/',
 {
         email: credentials,
         password: password
@@ -74,7 +74,7 @@ export class RegisterPage implements OnInit{
     const password = passwordElem.value;
     const credentials = credentialsElem.value;
 
-    this.http.post('http://5.35.80.178:8000/register/',
+    this.http.post('/api/register/',
       {
         email: credentials,
         phone: '',
@@ -91,6 +91,8 @@ export class RegisterPage implements OnInit{
       } else if (res.message.toLowerCase() == "User created successfully. Please verify your account.".toLowerCase()) {
         this.router.navigate(['/verification/']);
       }
+    }, error => {
+      console.error(error)
     })
   }
 
@@ -108,19 +110,5 @@ export class RegisterPage implements OnInit{
       }).subscribe((res: any) => {
       console.log(res)
     })
-  }
-
-  async ionViewWillLeave() {
-    this.http.post("http://5.35.80.178:8000/log_time/",
-      {
-        "action": "Страница регистрации",
-        "duration": this.secondsOnPage
-      },
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
   }
 }

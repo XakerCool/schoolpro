@@ -109,7 +109,7 @@ export class VerificationPage implements OnInit {
           text.append("мы отправили вам")
           text.style.color = "black"
         } else {
-          this.http.post("http://5.35.80.178:8000/verify-account/",
+          this.http.post("/api/verify-account/",
             {
               "code": verificationCode,
               "user_id": userId
@@ -125,20 +125,5 @@ export class VerificationPage implements OnInit {
         }
       }
     })
-  }
-
-  async ionViewWillLeave() {
-    this.http.post("http://5.35.80.178:8000/log_time/",
-      {
-        "action": "Страница верификации" +
-          "",
-        "duration": this.secondsOnPage
-      },
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
   }
 }

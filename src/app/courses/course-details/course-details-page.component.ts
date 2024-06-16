@@ -32,13 +32,16 @@ export class CourseDetailsPageComponent implements OnInit{
     setInterval(() => {
       this.secondsOnPage++
     }, 1000)
+    setTimeout(() => {
+      this.logTime()
+    }, 20000)
     this.route.params.subscribe(params => {
       this.courseId = params['id'];
     });
 
-    this.http.get("http://5.35.80.178:8000/courses/courses/" + this.courseId+"/").subscribe((res: any) => {
+    this.http.get("/api/courses/courses/" + this.courseId+"/").subscribe((res: any) => {
       this.selectedCourse = res;
-      this.http.get("http://5.35.80.178:8000/courses/courses/"+this.selectedCourse.id+"/lessons/").subscribe((res: any) => {
+      this.http.get("/api/courses/courses/"+this.selectedCourse.id+"/lessons/").subscribe((res: any) => {
         this.selectedCourse.lessons = res;
         this.selectedCourse.available = 0;
         this.selectedCourse.lessons.forEach(lesson => {
@@ -48,6 +51,30 @@ export class CourseDetailsPageComponent implements OnInit{
         this.showLessonInfo()
       })
     })
+  }
+
+  logTime() {
+    const userId = getCookie('user_id');
+    if (!userId) {
+      console.error('User ID not found in cookies');
+      return;
+    }
+
+    this.http.post("/api/log_time/",
+      {
+        "action": `User: ${userId}: Страница викторины`,
+        "duration": this.secondsOnPage
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    ).subscribe((res: any) => {
+      console.log(res);
+    }, (error) => {
+      console.error('Error logging time:', error);
+    });
   }
 
   showLessonInfo() {
@@ -62,18 +89,11 @@ export class CourseDetailsPageComponent implements OnInit{
       })
     })
   }
-
-  async ionViewWillLeave() {
-    this.http.post("http://5.35.80.178:8000/log_time/",
-      {
-        "action": "Страница детали курса",
-        "duration": this.secondsOnPage
-      },
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
+}
+function getCookie(name: string): string | null {
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  if (match) {
+    return match[2];
   }
+  return null;
 }

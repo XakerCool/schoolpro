@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {of, tap} from "rxjs";
+import {catchError} from "rxjs/operators";
 
 @Component({
   selector: 'app-home-page',
@@ -37,18 +39,22 @@ export class HomePageComponent implements OnInit{
 
   showAllPosts() {
     this.highlightSelectedCategory("cat_all")
-    this.http.get('http://5.35.80.178:8000/').subscribe(data => {
-      const dataObj = data as any;
-      this.posts = dataObj.results;
-      console.log(this.posts)
-    }, error => {
-      console.error('Error:', error);
-    });
+    this.http.get('/api/')
+      .pipe(
+        tap((data: any) => {
+          this.posts = data.results;
+        }),
+        catchError(error => {
+          console.error('Error:', error);
+          return of([]);
+        })
+      )
+      .subscribe();
   }
 
   showInterestingPosts() {
     this.highlightSelectedCategory("cat_interesting")
-    this.http.get('http://5.35.80.178:8000/popular_news/').subscribe(data => {
+    this.http.get('/api/popular_news/').subscribe(data => {
       const dataObj = data as any;
       this.posts = dataObj.results;
     }, error => {
@@ -58,7 +64,7 @@ export class HomePageComponent implements OnInit{
 
   showSavedPosts() {
     this.highlightSelectedCategory("cat_saved")
-    this.http.get('http://5.35.80.178:8000/featured_news/').subscribe(data => {
+    this.http.get('/api/featured_news/').subscribe(data => {
       const dataObj = data as any;
       this.posts = dataObj.results;
     }, error => {
@@ -69,25 +75,11 @@ export class HomePageComponent implements OnInit{
   save(event: any, id: any) {
     if (!event.currentTarget.classList.contains("saved")) {
       event.currentTarget.classList.add("saved");
-      this.http.post('http://5.35.80.178:8000/'+id+"/favorite/", {}, {}).subscribe(data => {
+      this.http.post('/api/'+id+"/favorite/", {}, {}).subscribe(data => {
         console.log(data)
       }, error => {
         console.error('Error:', error);
       });
     }
-  }
-
-  async ionViewWillLeave() {
-    this.http.post("http://5.35.80.178:8000/log_time/",
-      {
-        "action": "Главная страница (страница новостей)",
-        "duration": this.secondsOnPage
-      },
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
   }
 }
