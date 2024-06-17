@@ -251,7 +251,7 @@ export class TestPageComponent implements OnInit{
       this.logTime()
     }, 20000)
 
-    this.http.get("/api/"+this.courseId+"/tests").subscribe((res: any) => {
+    this.http.get("/api/courses/"+this.courseId+"/quizzes/").subscribe((res: any) => {
       this.quiz = res;
     })
 
